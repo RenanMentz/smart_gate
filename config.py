@@ -47,10 +47,15 @@ class ProcessingConfig:
     """Parameters of the OpenCV pre-processing pipeline applied to the plate crop."""
 
     target_height: int = 120             # plate crop is resized to this height (keeps aspect)
+    deskew: bool = True                  # correct small rotations of the plate crop
+    max_deskew_angle: float = 20.0       # ignore line angles larger than this (degrees)
     bilateral_d: int = 11                # bilateral filter neighbourhood diameter
     bilateral_sigma: int = 17            # bilateral filter colour/space sigma
+    equalization: str = "clahe"          # "clahe" (local), "global" (equalizeHist) or "none"
     clahe_clip_limit: float = 2.0        # CLAHE contrast limit
     clahe_tile_grid: int = 8             # CLAHE tile grid size
+    sharpen_amount: float = 1.0          # unsharp-mask strength (0 disables)
+    threshold_method: str = "adaptive"   # "adaptive" (local mean) or "otsu" (global)
     adaptive_block_size: int = 31        # adaptive threshold neighbourhood (odd)
     adaptive_c: int = 10                 # constant subtracted from the local mean
     morph_kernel_size: int = 3           # structuring element for opening/closing
