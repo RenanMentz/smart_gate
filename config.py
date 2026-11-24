@@ -38,8 +38,13 @@ class DetectionConfig:
 
     confidence_threshold: float = 0.25   # minimum YOLO box confidence
     iou_threshold: float = 0.45          # NMS overlap threshold
+    image_size: int = 640                # YOLO input size (larger helps small/distant plates)
+    max_detections: int = 5              # plates kept per image
     crop_padding: float = 0.05           # extra margin (fraction of box size) around the crop
+    retry_with_illumination_fix: bool = True  # second YOLO pass on a CLAHE-enhanced image
     use_classical_fallback: bool = True  # use OpenCV contour detector if YOLO finds nothing
+    min_plate_aspect: float = 2.0        # classical detector: width/height range of a car plate
+    max_plate_aspect: float = 6.0        # (Brazilian car plate is 400x130 mm -> ~3.1)
 
 
 @dataclass
