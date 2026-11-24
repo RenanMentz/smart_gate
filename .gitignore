@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Runtime data (database and captured images are generated locally)
+data/*
+!data/.gitkeep
+
+# Model weights (downloaded/trained locally, too large for git)
+models/*
+!models/.gitkeep
+*.pt
+*.onnx
+
+# Training outputs
+runs/
+datasets/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

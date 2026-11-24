@@ -1,0 +1,30 @@
+# Smart Gate - dependencies (tested with Python 3.12 on Windows 11)
+#
+# PyTorch must be installed FIRST from the official index to get GPU (CUDA) support:
+#   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+# CPU-only machines can use:
+#   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
+# Then:
+#   pip install -r requirements.txt
+
+# Deep learning (detection + OCR share the same PyTorch backend)
+ultralytics==8.4.218
+easyocr==1.7.2
+
+# Image processing
+# Ultralytics depends on opencv-python and EasyOCR on opencv-python-headless.
+# Both are pinned to the SAME version so they install identical cv2 binaries.
+opencv-python==5.1.0.95
+opencv-python-headless==5.1.0.95
+numpy==2.5.4
+pillow==13.0.0
+
+# Interface and data
+streamlit==1.67.0
+pandas==3.1.1
+
+# Model download
+huggingface_hub==2.4.0
+
+# Tests
+pytest==9.2.0
