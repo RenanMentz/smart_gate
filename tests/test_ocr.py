@@ -1,0 +1,155 @@
+"""Tests for OCR post-processing (pure logic) and the EasyOCR integration.
+
+The pure-logic tests feed hand-written fragments in the EasyOCR output
+format, so every rule (filtering, ordering, correction, review triggers) is
+checked deterministically. The slow test runs the real EasyOCR model on a
+SYNTHETIC plate only to check the integration works end to end.
+"""
+
+import pytest
+
+from config import OCRConfig
+from modules.ocr import (
+    PlateOCR,
+    choose_reading,
+    correct_by_position,
+    interpret_fragments,
+    order_fragments,
+    position4_alternatives,
+)
+from modules.plate_format import PlateFormat
+
+
+def frag(text, x, y, w=100, h=40, conf=0.9):
+    """Build an EasyOCR-like fragment with its top-left corner at (x, y)."""
+    return ([[x, y], [x + w, y], [x + w, y + h], [x, y + h]], text, conf)
+
+
+# ------------------------------------------------------- position correction
+@pytest.mark.parametrize(
+    ("raw", "expected", "n_fixes"),
+    [
+        ("ABC1234", "ABC1234", 0),
+        ("A8C1234", "ABC1234", 1),     # 8 in a letter position -> B
+        ("ABCI234", "ABC1234", 1),     # I in a digit position  -> 1
+        ("0BC1D2S", "OBC1D25", 2),
+        ("ABC1B23", "ABC1B23", 0),     # position 5 (index 4) is never changed
+        ("ABC1823", "ABC1823", 0),
+    ],
+)
+def test_correct_by_position(raw, expected, n_fixes):
+    corrected, fixes = correct_by_position(raw)
+    assert corrected == expected
+    assert len(fixes) == n_fixes
+
+
+def test_correct_by_position_requires_seven_chars():
+    with pytest.raises(ValueError):
+        correct_by_position("ABC12")
+
+
+def test_position4_alternatives():
+    assert position4_alternatives("ABC1B23") == ["ABC1823"]
+    assert position4_alternatives("ABC1823") == ["ABC1B23"]
+    assert position4_alternatives("ABC1K23") == []      # K has no look-alike digit
+    assert position4_alternatives("ABC") == []
+
+
+# --------------------------------------------------------- fragment handling
+def test_small_text_is_ignored_and_order_is_left_to_right():
+    fragments = [
+        frag("1D23", 200, 50),
+        frag("BRASIL", 120, 0, w=80, h=12),            # small header strip
+        frag("ABC", 50, 50),
+    ]
+    assert [f[1] for f in order_fragments(fragments)] == ["ABC", "1D23"]
+
+
+def test_two_row_plate_is_read_top_to_bottom():
+    fragments = [frag("1D23", 10, 60), frag("ABC", 10, 0)]   # motorcycle layout
+    assert [f[1] for f in order_fragments(fragments)] == ["ABC", "1D23"]
+
+
+def test_interpret_valid_plate_with_hyphen_and_spaces():
+    reading = interpret_fragments([frag("abc-12", 0, 0, conf=0.8), frag("34", 120, 0, conf=1.0)], "t")
+    assert reading.plate == "ABC1234"
+    assert reading.format is PlateFormat.OLD
+    # 5 chars at 0.8 + 2 chars at 1.0 -> weighted mean
+    assert reading.confidence == pytest.approx((5 * 0.8 + 2 * 1.0) / 7, abs=1e-4)
+
+
+def test_interpret_too_short_is_invalid():
+    reading = interpret_fragments([frag("ABC12", 0, 0)], "t")
+    assert reading.plate is None and "Only 5 characters" in reading.notes[0]
+
+
+def test_interpret_extra_characters_single_valid_window():
+    reading = interpret_fragments([frag("ABC1D23I", 0, 0)], "t")
+    assert reading.plate == "ABC1D23"
+
+
+def test_interpret_extra_characters_ambiguous_is_rejected():
+    # windows "ABCD123" (-> ABC0123 after D->0) and "BCD1234" are both valid:
+    # the system must not pick one on its own
+    reading = interpret_fragments([frag("ABCD1234", 0, 0)], "t")
+    assert reading.plate is None and "more than one" in reading.notes[0]
+    reading = interpret_fragments([frag("AAA1111AAA1111", 0, 0)], "t")
+    assert reading.plate is None
+
+
+def test_interpret_too_many_corrections_is_rejected():
+    reading = interpret_fragments([frag("0811234", 0, 0)], "t", OCRConfig(max_corrections=2))
+    assert reading.plate is None and len(reading.corrections) == 3
+
+
+def test_interpret_nothing_read():
+    reading = interpret_fragments([], "t")
+    assert reading.plate is None and reading.confidence == 0.0
+
+
+# ------------------------------------------------------------ final decision
+def test_choose_high_confidence_valid_reading_is_accepted():
+    r1 = interpret_fragments([frag("ABC1D23", 0, 0, conf=0.95)], "binary")
+    r2 = interpret_fragments([frag("ABC1D2", 0, 0, conf=0.99)], "enhanced")
+    result = choose_reading([r1, r2])
+    assert result.plate == "ABC1D23" and result.source == "binary"
+    assert result.needs_review is False and result.reasons == []
+
+
+def test_low_confidence_requires_review_but_keeps_text():
+    result = choose_reading([interpret_fragments([frag("ABC1D23", 0, 0, conf=0.4)], "b")])
+    assert result.needs_review and "Low OCR confidence" in result.reasons[0]
+    assert result.plate == "ABC1D23"   # shown to the operator, not hidden
+
+
+def test_disagreeing_readings_require_review():
+    r1 = interpret_fragments([frag("ABC1D23", 0, 0, conf=0.9)], "binary")
+    r2 = interpret_fragments([frag("ABC1D28", 0, 0, conf=0.9)], "enhanced")
+    result = choose_reading([r1, r2])
+    assert result.needs_review and "different plates" in result.reasons[0]
+
+
+def test_invalid_text_requires_review_and_no_plate_is_invented():
+    result = choose_reading([interpret_fragments([frag("HELLO", 0, 0, conf=0.99)], "b")])
+    assert result.needs_review and result.plate is None
+    assert result.raw_text == "HELLO"
+
+
+def test_no_readings():
+    assert choose_reading([]).needs_review
+
+
+# ------------------------------------------------------------ real EasyOCR
+@pytest.mark.slow
+@pytest.mark.parametrize("text", ["ABC1D23", "XYZ9876"])
+def test_easyocr_reads_synthetic_plate(text):
+    from modules.image_processing import preprocess_plate
+    from tests.conftest import make_synthetic_plate, rotate_ccw
+
+    ocr = PlateOCR()
+    if not ocr.available:
+        pytest.skip(ocr.load_error)
+    processed = preprocess_plate(rotate_ccw(make_synthetic_plate(text), 5))
+    result = ocr.recognize({"enhanced": processed.enhanced, "binary": processed.binary})
+    assert result.plate == text
+    assert 0.0 < result.confidence <= 1.0

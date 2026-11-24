@@ -74,6 +74,9 @@ class OCRConfig:
     use_gpu: bool = True                  # falls back to CPU automatically if CUDA is missing
     min_confidence: float = 0.60          # below this the read goes to MANUAL REVIEW
     allowlist: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    max_corrections: int = 2              # more position-based fixes than this -> MANUAL REVIEW
+    min_text_height_ratio: float = 0.55   # ignore text smaller than this fraction of the tallest
+                                          # fragment ("BRASIL" strip, city name on old plates)
 
 
 @dataclass
