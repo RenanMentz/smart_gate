@@ -7,6 +7,8 @@ interface can override the thresholds at runtime (stored in the database).
 
 from __future__ import annotations
 
+import copy
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -30,6 +32,11 @@ ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png"}
 MAX_UPLOAD_SIZE_MB = 10
 MIN_IMAGE_SIDE_PX = 64          # images smaller than this cannot contain a readable plate
 MAX_IMAGE_SIDE_PX = 4096        # larger images are downscaled before processing
+
+# ---------------------------------------------------------------------------
+# Interface
+# ---------------------------------------------------------------------------
+SESSION_READINGS_LIMIT = 30     # readings (with their images) kept in memory per browser session
 
 
 @dataclass
@@ -97,3 +104,48 @@ def ensure_directories() -> None:
 
 
 DEFAULT_CONFIG = AppConfig()
+
+# ---------------------------------------------------------------------------
+# Runtime overrides (``settings`` table, edited on the Settings screen)
+# ---------------------------------------------------------------------------
+SETTING_OCR_MIN_CONFIDENCE = "ocr_min_confidence"
+SETTING_YOLO_CONFIDENCE = "yolo_confidence"
+SETTING_DUPLICATE_WINDOW = "duplicate_window_seconds"
+SETTING_GATE_OPEN_SECONDS = "gate_open_seconds"
+
+# key -> (type, minimum, maximum); values outside the range are ignored
+SETTING_LIMITS: dict[str, tuple[type, float, float]] = {
+    SETTING_OCR_MIN_CONFIDENCE: (float, 0.0, 1.0),
+    SETTING_YOLO_CONFIDENCE: (float, 0.01, 1.0),
+    SETTING_DUPLICATE_WINDOW: (int, 0, 3600),
+    SETTING_GATE_OPEN_SECONDS: (int, 1, 60),
+}
+
+
+def _parse_setting(key: str, raw: str) -> float | int | None:
+    """Convert a stored string to its type, or ``None`` if invalid / out of range."""
+    kind, low, high = SETTING_LIMITS[key]
+    try:
+        value = kind(float(raw)) if kind is int else float(raw)
+    except (TypeError, ValueError):
+        return None
+    return value if low <= value <= high else None
+
+
+def apply_settings(base: AppConfig, settings: Mapping[str, str]) -> AppConfig:
+    """Return a copy of ``base`` with the values stored in the database applied.
+
+    Unknown keys, unparsable values and out-of-range values are ignored, so a
+    corrupted settings row can never break the pipeline: the default is used.
+    """
+    cfg = copy.deepcopy(base)
+    values = {key: _parse_setting(key, settings[key]) for key in SETTING_LIMITS if key in settings}
+    if values.get(SETTING_OCR_MIN_CONFIDENCE) is not None:
+        cfg.ocr.min_confidence = values[SETTING_OCR_MIN_CONFIDENCE]
+    if values.get(SETTING_YOLO_CONFIDENCE) is not None:
+        cfg.detection.confidence_threshold = values[SETTING_YOLO_CONFIDENCE]
+    if values.get(SETTING_DUPLICATE_WINDOW) is not None:
+        cfg.duplicate_window_seconds = values[SETTING_DUPLICATE_WINDOW]
+    if values.get(SETTING_GATE_OPEN_SECONDS) is not None:
+        cfg.gate_open_seconds = values[SETTING_GATE_OPEN_SECONDS]
+    return cfg
