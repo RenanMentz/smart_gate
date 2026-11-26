@@ -10,6 +10,9 @@ import cv2
 import numpy as np
 import pytest
 
+from modules.ocr import OCRResult
+from modules.plate_format import PlateFormat, detect_format
+
 
 def make_synthetic_plate(text: str = "ABC1D23", width: int = 400, height: int = 130) -> np.ndarray:
     """Draw a plate-like BGR image: dark characters on a light background with a border."""
@@ -25,6 +28,20 @@ def rotate_ccw(image: np.ndarray, degrees: float) -> np.ndarray:
     h, w = image.shape[:2]
     matrix = cv2.getRotationMatrix2D((w / 2, h / 2), degrees, 1.0)
     return cv2.warpAffine(image, matrix, (w, h), borderMode=cv2.BORDER_REPLICATE)
+
+
+def make_ocr_result(plate, needs_review=False, reasons=None, confidence=0.9) -> OCRResult:
+    """Hand-built OCR result (no model involved) for access-control and pipeline tests."""
+    return OCRResult(
+        plate=plate,
+        raw_text=plate or "",
+        confidence=confidence,
+        format=detect_format(plate) if plate else PlateFormat.INVALID,
+        needs_review=needs_review,
+        reasons=reasons or [],
+        corrections=[],
+        source="enhanced",
+    )
 
 
 @pytest.fixture
