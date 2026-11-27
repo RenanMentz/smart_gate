@@ -133,7 +133,7 @@ camera to the training set, then repeat `train_detector` + `evaluate`.
 
 | Problem | Action |
 |---|---|
-| RTX 50xx (Blackwell, `sm_120`) is not supported by the PyTorch cu124 build in the setup | Documented in `requirements.txt` (use the cu128 build); the Settings screen detects the mismatch |
+| RTX 50xx (Blackwell, `sm_120`) is not supported by the PyTorch cu124 build in the setup | Documented in `requirements.txt` (use the cu128 build); the Settings screen detects the mismatch and the models fall back to the CPU (`modules/device.py`) |
 | Dataset has no exportable version | Download rebuilt from the image API |
 | Motorcycle plates far from the camera are missed | Fine-tuning (item 11) detects them; the OCR still cannot read them, so they go to manual review, never to "authorized" |
 | Fine-tuned detector fires on a photo without plates | Kept the published model as default; regression test pinned per model |

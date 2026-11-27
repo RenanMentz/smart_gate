@@ -23,6 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from modules.detection import PlateDetector
+from modules.device import arch_supported
 from modules.ocr import PlateOCR
 
 
@@ -49,23 +50,6 @@ class ModelStatus:
     detail: str                      # one line for the operator
 
 
-def _arch_supported(capability: str, arch_list: list[str]) -> bool | None:
-    """Does the build contain kernels for ``capability`` (``sm_XY``)?
-
-    PTX entries (``compute_XY``) can be JIT-compiled for newer GPUs of the
-    same major version or later, so they also count.
-    """
-    if not arch_list:
-        return None
-    if capability in arch_list:
-        return True
-    major = int(capability.removeprefix("sm_")) // 10
-    for arch in arch_list:
-        if arch.startswith("compute_") and int(arch.removeprefix("compute_")) // 10 <= major:
-            return True
-    return False
-
-
 def gpu_status() -> GPUStatus:
     """Inspect PyTorch and the first CUDA device (never raises)."""
     try:
@@ -82,7 +66,7 @@ def gpu_status() -> GPUStatus:
         status.device_name = torch.cuda.get_device_name(0)
         major, minor = torch.cuda.get_device_capability(0)
         status.capability = f"sm_{major}{minor}"
-        status.arch_supported = _arch_supported(status.capability, torch.cuda.get_arch_list())
+        status.arch_supported = arch_supported(status.capability, torch.cuda.get_arch_list())
         if status.arch_supported is False:
             status.message = (f"This PyTorch build (CUDA {torch.version.cuda}) has no kernels for "
                               f"{status.capability}. Install a build that supports this GPU.")

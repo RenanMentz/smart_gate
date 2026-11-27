@@ -329,13 +329,6 @@ def test_settings_page_shows_model_status_without_loading_models(pipeline):
 
 
 # ----------------------------------------------------------- system status
-def test_arch_support_detection():
-    assert system_status._arch_supported("sm_120", ["sm_80", "sm_90", "sm_120"]) is True
-    assert system_status._arch_supported("sm_120", ["sm_50", "sm_80", "sm_90"]) is False   # e.g. cu124 builds
-    assert system_status._arch_supported("sm_89", ["sm_80", "compute_80"]) is True          # PTX JIT
-    assert system_status._arch_supported("sm_89", []) is None
-
-
 def test_yolo_status_recognizes_the_published_weights(tmp_path):
     weights = tmp_path / "w.pt"
     weights.write_bytes(b"weights")

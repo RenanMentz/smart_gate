@@ -286,9 +286,10 @@ class PlateOCR:
             return self._reader
         try:
             import easyocr
-            import torch
 
-            self.gpu = bool(self.cfg.use_gpu and torch.cuda.is_available())
+            from modules.device import cuda_usable
+
+            self.gpu = bool(self.cfg.use_gpu and cuda_usable())
             self._reader = easyocr.Reader(self.cfg.languages, gpu=self.gpu, verbose=False)
         except Exception as exc:  # missing model files, no internet on first run...
             self.load_error = f"Could not load EasyOCR: {exc}"

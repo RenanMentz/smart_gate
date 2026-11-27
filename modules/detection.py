@@ -222,11 +222,12 @@ class PlateDetector:
             logger.warning(self.load_error)
             return None
         try:
-            import torch
             from ultralytics import YOLO
 
+            from modules.device import cuda_usable
+
             if self.device is None:
-                self.device = "0" if torch.cuda.is_available() else "cpu"
+                self.device = "0" if cuda_usable() else "cpu"
             self._model = YOLO(str(self.model_path))
         except Exception as exc:  # corrupted file, incompatible version...
             self.load_error = f"Could not load YOLO model: {exc}"
