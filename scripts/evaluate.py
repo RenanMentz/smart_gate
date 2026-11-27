@@ -33,6 +33,7 @@ to ``docs/evaluation/``.
 from __future__ import annotations
 
 import argparse
+import copy
 import csv
 import json
 import sys
@@ -147,7 +148,7 @@ def read_ocr(ocr: PlateOCR, crop: np.ndarray) -> OCRResult | None:
     if crop is None or crop.size == 0 or min(crop.shape[:2]) < 2:
         return None
     processed = preprocess_plate(crop)
-    return ocr.recognize({"enhanced": processed.enhanced, "binary": processed.binary})
+    return ocr.recognize({"crop": crop, "enhanced": processed.enhanced, "binary": processed.binary})
 
 
 def load_texts(root: Path) -> dict[str, str]:
@@ -259,6 +260,7 @@ def markdown_report(summary: dict, rows: list[ImageRow], meta: dict) -> str:
         f"* Device: {meta['device']} · YOLO confidence {meta['confidence']} · input size {meta['image_size']} · "
         f"IoU threshold {IOU_THRESHOLD}",
         f"* Classical fallback: {'on' if meta['fallback'] else 'off'} · time: {meta['seconds']:.0f} s",
+        f"* OCR: {meta.get('ocr', 'not recorded')}",
         "",
         "## Detection",
         "",
@@ -346,6 +348,10 @@ def main() -> None:
                         help="YOLO input size")
     parser.add_argument("--no-fallback", action="store_true", help="disable the classical OpenCV detector")
     parser.add_argument("--no-ocr", action="store_true", help="evaluate detection only (faster)")
+    parser.add_argument("--ocr-engine", choices=["fast_plate", "easyocr"], default=config.DEFAULT_CONFIG.ocr.engine,
+                        help="OCR engine (default: the one in config.py)")
+    parser.add_argument("--ocr-min-confidence", type=float, default=config.DEFAULT_CONFIG.ocr.min_confidence,
+                        help="below this a read needs manual review")
     parser.add_argument("--export-crops", action="store_true", help="write crops + template for annotation")
     args = parser.parse_args()
 
@@ -364,7 +370,9 @@ def main() -> None:
     detector = PlateDetector(model_path=args.model, cfg=cfg)
     if not detector.yolo_available:
         raise SystemExit(detector.load_error)
-    ocr = None if args.no_ocr else PlateOCR()
+    ocr_cfg = copy.deepcopy(config.DEFAULT_CONFIG.ocr)
+    ocr_cfg.engine, ocr_cfg.min_confidence = args.ocr_engine, args.ocr_min_confidence
+    ocr = None if args.no_ocr else PlateOCR(ocr_cfg)
     if ocr is not None and not ocr.available:
         raise SystemExit(ocr.load_error)
     texts = load_texts(args.dataset)
@@ -381,6 +389,7 @@ def main() -> None:
             "splits": splits, "model": args.model.name, "model_sha256": sha256_of(args.model),
             "device": gpu.device_name if gpu.usable else "CPU", "confidence": cfg.confidence_threshold,
             "fallback": cfg.use_classical_fallback, "image_size": cfg.image_size,
+            "ocr": "none" if ocr is None else f"{ocr.engine_name}, minimum confidence {ocr_cfg.min_confidence}",
             "seconds": time.perf_counter() - started,
             "texts_annotated": len(texts)}
     summary = summarize(rows)

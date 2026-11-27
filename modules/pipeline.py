@@ -188,8 +188,9 @@ class RecognitionPipeline:
         # 3. OCR --------------------------------------------------------------
         if processing is not None:
             try:
-                ocr = self.ocr.recognize({"enhanced": processing.enhanced, "binary": processing.binary})
-            except Exception as exc:       # includes "EasyOCR unavailable" (missing model files)
+                ocr = self.ocr.recognize({"crop": crop, "enhanced": processing.enhanced,
+                                          "binary": processing.binary})
+            except Exception as exc:       # includes "no OCR engine available" (missing model files)
                 logger.exception("OCR failed")
                 status = PipelineStatus.OCR_FAILED
                 failure = f"Character recognition failed: {exc}"

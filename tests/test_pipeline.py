@@ -83,7 +83,7 @@ def test_full_run_returns_every_artifact(db, tmp_path):
     assert not np.array_equal(result.annotated, SCENE)
     assert result.crop is not None and result.detection.method == "yolo"
     assert [s.name for s in result.steps][:2] == ["Original", "Grayscale"] and len(result.steps) >= 8
-    assert ocr.calls == [["binary", "enhanced"]]                 # both candidates reach the OCR
+    assert ocr.calls == [["binary", "crop", "enhanced"]]         # colour crop + both processed images
     assert result.ocr.plate == "ABC1D23"
     assert result.decision.result is AccessResult.AUTHORIZED and result.decision.vehicle.id == vehicle.id
     assert result.gate_open_seconds == config.DEFAULT_CONFIG.gate_open_seconds

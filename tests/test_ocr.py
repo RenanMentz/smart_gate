@@ -6,6 +6,7 @@ checked deterministically. The slow test runs the real EasyOCR model on a
 SYNTHETIC plate only to check the integration works end to end.
 """
 
+import numpy as np
 import pytest
 
 from config import OCRConfig
@@ -15,6 +16,7 @@ from modules.ocr import (
     correct_by_position,
     interpret_fragments,
     order_fragments,
+    plate_model_reading,
     position4_alternatives,
 )
 from modules.plate_format import PlateFormat
@@ -154,6 +156,7 @@ def test_easyocr_reads_synthetic_plate(text):
     assert result.plate == text
     assert 0.0 < result.confidence <= 1.0
 
+
 # ------------------------------------------------- observed vs guessed chars
 def _reading(text, source, conf=0.5):
     box = [[0, 0], [100, 0], [100, 40], [0, 40]]
@@ -184,3 +187,74 @@ def test_two_different_guesses_still_go_to_review():
     result = choose_reading([_reading("ABCTD23", "enhanced", 0.9), _reading("ABCID23", "binary", 0.9)])
     assert result.needs_review
 
+
+# ------------------------------------------------------- plate model engine
+def test_plate_model_reading_uses_the_lowest_character_probability():
+    reading = plate_model_reading("ABC1D23", [0.99, 0.98, 0.97, 0.62, 0.99, 0.99, 0.99, 1.0, 1.0, 1.0], "Brazil")
+    assert reading.plate == "ABC1D23" and reading.confidence == pytest.approx(0.62)
+    assert reading.source == "plate_model" and "Brazil" in reading.notes[-1]
+
+
+def test_plate_model_reading_goes_through_position_correction():
+    reading = plate_model_reading("A8C1D23", [1.0] * 10)            # 8 at a letter position
+    assert reading.plate == "ABC1D23" and [str(c) for c in reading.corrections] == ["pos 2: 8->B"]
+    assert plate_model_reading("", [1.0] * 10).plate is None
+
+
+class _FakePrediction:
+    def __init__(self, plate):
+        self.plate, self.char_probs, self.region = plate, [0.99] * 10, "Brazil"
+
+
+class _FakePlateModel:
+    def __init__(self, plate):
+        self.plate = plate
+
+    def run(self, image, return_confidence=False):
+        assert image.ndim == 3 and image.flags["C_CONTIGUOUS"]
+        return [_FakePrediction(self.plate)]
+
+
+def _ocr_with(plate_model_text, easy_fragments=None):
+    ocr = PlateOCR(OCRConfig())
+    ocr._plate_model = _FakePlateModel(plate_model_text)
+    if easy_fragments is None:
+        ocr.load_error = "EasyOCR not installed (test)"
+    else:
+        ocr._reader = object()
+        ocr.read_fragments = lambda image: easy_fragments
+    return ocr
+
+
+IMAGES = {"crop": np.zeros((40, 120, 3), np.uint8), "enhanced": np.zeros((40, 120), np.uint8),
+          "binary": np.zeros((40, 120), np.uint8)}
+
+
+def test_valid_plate_model_read_does_not_call_easyocr():
+    ocr = _ocr_with("ABC1D23", easy_fragments=[])
+    ocr.read_fragments = lambda image: pytest.fail("EasyOCR should not run")
+    result = ocr.recognize(IMAGES)
+    assert result.plate == "ABC1D23" and result.source == "plate_model" and not result.needs_review
+
+
+def test_invalid_plate_model_read_falls_back_to_easyocr():
+    box = [[0, 0], [100, 0], [100, 40], [0, 40]]
+    ocr = _ocr_with("ABC12", easy_fragments=[(box, "ABC1D23", 0.9)])
+    result = ocr.recognize(IMAGES)
+    assert result.plate == "ABC1D23" and result.source in {"enhanced", "binary"}
+    assert [r.source for r in result.readings] == ["plate_model", "enhanced", "binary"]
+
+
+def test_no_engine_available_raises():
+    ocr = PlateOCR(OCRConfig())
+    ocr.plate_model_error, ocr.load_error = "no plate model", "no easyocr"
+    with pytest.raises(RuntimeError, match="no plate model"):
+        ocr.recognize(IMAGES)
+
+
+def test_easyocr_engine_ignores_the_plate_model():
+    ocr = PlateOCR(OCRConfig(engine="easyocr"))
+    box = [[0, 0], [100, 0], [100, 40], [0, 40]]
+    ocr._reader = object()
+    ocr.read_fragments = lambda image: [(box, "XYZ9876", 0.9)]
+    assert ocr.recognize(IMAGES).plate == "XYZ9876" and ocr.engine_name == "EasyOCR"

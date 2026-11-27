@@ -38,5 +38,10 @@ With the fine-tuned detector (`SMART_GATE_MODEL=finetuned`, see
 read correctly as `BAH5201` (72 %) and image 05 is detected but unreadable
 (manual review).
 
+**With the current default OCR (fast-plate-ocr)** the table above changes:
+image 04 is read correctly as `BAH5201`, and image 01 is read `ASS2I93`
+(5th character wrong). The table above was recorded with EasyOCR, the previous
+default.
+
 Values recorded on 2026-11-26 (RTX 5050, PyTorch 2.7.1 + CUDA 12.8). Other
 hardware may produce slightly different confidences.

@@ -1,7 +1,7 @@
 {
  "meta": {
   "tag": "published",
-  "date": "2026-11-26 22:38",
+  "date": "2026-11-26 22:32",
   "dataset": "brazilian_lpr",
   "splits": [
    "train",
@@ -14,7 +14,8 @@
   "confidence": 0.25,
   "fallback": true,
   "image_size": 640,
-  "seconds": 61.46141660000103,
+  "ocr": "fast-plate-ocr (cct-xs-v2-global-model), minimum confidence 0.45",
+  "seconds": 34.6445377,
   "texts_annotated": 0
  },
  "summary": {
@@ -79,29 +80,29 @@
   "yolo_only_recall": 0.5933014354066986,
   "ocr_on_detected_box": {
    "reads": 247,
-   "valid_plate": 94,
-   "accepted_without_review": 60
+   "valid_plate": 180,
+   "accepted_without_review": 142
   },
   "ocr_on_ground_truth_box": {
    "reads": 370,
-   "valid_plate": 106,
-   "accepted_without_review": 69
+   "valid_plate": 206,
+   "accepted_without_review": 150
   },
   "ocr_by_vehicle": {
    "car": {
     "reads": 16,
-    "valid_plate": 6,
-    "accepted_without_review": 2
+    "valid_plate": 15,
+    "accepted_without_review": 13
    },
    "motorcycle": {
     "reads": 339,
-    "valid_plate": 94,
-    "accepted_without_review": 64
+    "valid_plate": 181,
+    "accepted_without_review": 127
    },
    "unknown": {
     "reads": 15,
-    "valid_plate": 6,
-    "accepted_without_review": 3
+    "valid_plate": 10,
+    "accepted_without_review": 10
    }
   },
   "ocr_accuracy_detected_box": null,
@@ -122,16 +123,16 @@
     0.917
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "IXS4832",
+    "raw_text": "IXS4832",
+    "confidence": 0.689,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "IXS4832",
+    "raw_text": "IXS4832",
+    "confidence": 0.7138,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -149,15 +150,15 @@
     0.877
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "TGB2551",
+    "raw_text": "TGB2551",
+    "confidence": 0.121,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "25BB151",
+    "confidence": 0.1284,
     "needs_review": true
    },
    "truth": null,
@@ -177,14 +178,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "53FG3",
+    "confidence": 0.2149,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "F3EG",
+    "confidence": 0.312,
     "needs_review": true
    },
    "truth": null,
@@ -204,14 +205,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "FJM75",
+    "confidence": 0.1166,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "JWM",
+    "confidence": 0.2129,
     "needs_review": true
    },
    "truth": null,
@@ -231,14 +232,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "458",
-    "confidence": 0.0414,
+    "raw_text": "15D03166",
+    "confidence": 0.2257,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "65B13366",
+    "confidence": 0.1612,
     "needs_review": true
    },
    "truth": null,
@@ -264,8 +265,8 @@
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "333B",
-    "confidence": 0.0483,
+    "raw_text": "6116",
+    "confidence": 0.1114,
     "needs_review": true
    },
    "truth": null,
@@ -284,8 +285,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "43822",
+    "confidence": 0.2459,
     "needs_review": true
    },
    "truth": null,
@@ -304,8 +305,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "4357",
+    "confidence": 0.1832,
     "needs_review": true
    },
    "truth": null,
@@ -324,16 +325,16 @@
     0.781
    ],
    "ocr_detected": {
-    "plate": "OAH5201",
-    "raw_text": "O4H5201",
-    "confidence": 0.1922,
-    "needs_review": true
+    "plate": "BAH5201",
+    "raw_text": "BAH5201",
+    "confidence": 0.9914,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "UWH5201",
-    "raw_text": "UWH5201",
-    "confidence": 0.3052,
-    "needs_review": true
+    "plate": "BAH5201",
+    "raw_text": "BAH5201",
+    "confidence": 0.9597,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -351,16 +352,16 @@
     0.798
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "IB102",
-    "confidence": 0.5329,
-    "needs_review": true
+    "plate": "BDU1C71",
+    "raw_text": "BDU1C71",
+    "confidence": 0.9994,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "BDQ1O20",
-    "raw_text": "BDQJO2Q",
-    "confidence": 0.091,
-    "needs_review": true
+    "plate": "BDU1C71",
+    "raw_text": "BDU1C71",
+    "confidence": 0.9995,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -378,16 +379,16 @@
     0.787
    ],
    "ocr_detected": {
-    "plate": "LCZ0408",
-    "raw_text": "LC 20408",
-    "confidence": 0.1423,
-    "needs_review": true
+    "plate": "AFC2040",
+    "raw_text": "AFC2040",
+    "confidence": 0.9923,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "I",
-    "confidence": 0.959,
-    "needs_review": true
+    "plate": "AFC2040",
+    "raw_text": "AFC2040",
+    "confidence": 0.9959,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -405,15 +406,15 @@
     0.684
    ],
    "ocr_detected": {
-    "plate": "ASS2193",
-    "raw_text": "ASS 2193",
-    "confidence": 0.9702,
+    "plate": "ASS2I93",
+    "raw_text": "ASS2I93",
+    "confidence": 0.9991,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "ASS2193",
-    "raw_text": "ASS 2193",
-    "confidence": 0.9959,
+    "plate": "ASS2I93",
+    "raw_text": "ASS2I93",
+    "confidence": 0.999,
     "needs_review": false
    },
    "truth": null,
@@ -432,16 +433,16 @@
     0.844
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "4X8376",
-    "confidence": 0.5533,
-    "needs_review": true
+    "plate": "AVX8376",
+    "raw_text": "AVX8376",
+    "confidence": 0.9975,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "AIX8378",
-    "raw_text": "41X8378",
-    "confidence": 0.2672,
-    "needs_review": true
+    "plate": "AVX8376",
+    "raw_text": "AVX8376",
+    "confidence": 0.9972,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -459,16 +460,16 @@
     0.902
    ],
    "ocr_detected": {
-    "plate": "QIP0H22",
-    "raw_text": "QIPOHZ2",
-    "confidence": 0.3243,
-    "needs_review": true
+    "plate": "QXP0H22",
+    "raw_text": "QXP0H22",
+    "confidence": 0.9464,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "QTPOHZZ",
-    "confidence": 0.2106,
-    "needs_review": true
+    "plate": "QXP0H22",
+    "raw_text": "QXP0H22",
+    "confidence": 0.9531,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -486,16 +487,16 @@
     0.83
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "RHOJG7",
-    "confidence": 0.728,
-    "needs_review": true
+    "plate": "RHY6J07",
+    "raw_text": "RHY6J07",
+    "confidence": 0.9181,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "LRH06J07",
-    "confidence": 0.1951,
-    "needs_review": true
+    "plate": "RHY6J07",
+    "raw_text": "RHY6J07",
+    "confidence": 0.9748,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -513,16 +514,16 @@
     0.896
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "2BDT89292",
-    "confidence": 0.0744,
-    "needs_review": true
+    "plate": "BDT6J29",
+    "raw_text": "BDT6J29",
+    "confidence": 0.9993,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "20483223",
-    "confidence": 0.0893,
-    "needs_review": true
+    "plate": "BDT6J29",
+    "raw_text": "BDT6J29",
+    "confidence": 0.9994,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -540,16 +541,16 @@
     0.821
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "JZ",
-    "confidence": 0.1175,
-    "needs_review": true
+    "plate": "ATB4489",
+    "raw_text": "ATB4489",
+    "confidence": 0.9865,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "ITB83",
-    "confidence": 0.1815,
-    "needs_review": true
+    "plate": "ATB4489",
+    "raw_text": "ATB4489",
+    "confidence": 0.8454,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -566,10 +567,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "ZL 576",
-    "confidence": 0.9296,
-    "needs_review": true
+    "plate": "DZL9767",
+    "raw_text": "DZL9767",
+    "confidence": 0.9472,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -588,14 +589,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "JE",
-    "confidence": 0.0695,
+    "raw_text": "KR7102",
+    "confidence": 0.4824,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "7402",
-    "confidence": 0.1562,
+    "raw_text": "KR7002",
+    "confidence": 0.5522,
     "needs_review": true
    },
    "truth": null,
@@ -614,15 +615,15 @@
     0.807
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "PKB7102",
+    "raw_text": "PKB7102",
+    "confidence": 0.2828,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "PKB1122",
+    "raw_text": "PKB1122",
+    "confidence": 0.2866,
     "needs_review": true
    },
    "truth": null,
@@ -661,8 +662,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "SZ5590",
+    "confidence": 0.1074,
     "needs_review": true
    },
    "truth": null,
@@ -681,8 +682,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "EKB558",
+    "confidence": 0.0986,
     "needs_review": true
    },
    "truth": null,
@@ -727,9 +728,9 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "E",
-    "confidence": 0.2306,
+    "plate": "BKO0B74",
+    "raw_text": "BKO0B74",
+    "confidence": 0.1833,
     "needs_review": true
    },
    "truth": null,
@@ -748,15 +749,15 @@
     0.792
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "E",
-    "confidence": 0.8639,
+    "plate": "WKQ0814",
+    "raw_text": "WKQ0814",
+    "confidence": 0.0793,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "07",
-    "confidence": 0.371,
+    "plate": "DKQ0114",
+    "raw_text": "DKQ0114",
+    "confidence": 0.0961,
     "needs_review": true
    },
    "truth": null,
@@ -775,8 +776,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "4444444",
+    "confidence": 0.1285,
     "needs_review": true
    },
    "truth": null,
@@ -802,8 +803,8 @@
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "1",
-    "confidence": 0.3739,
+    "raw_text": "KR2278",
+    "confidence": 0.7425,
     "needs_review": true
    },
    "truth": null,
@@ -822,15 +823,15 @@
     0.797
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "B1",
-    "confidence": 0.4088,
+    "plate": "BXY8611",
+    "raw_text": "BXY8611",
+    "confidence": 0.4047,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "183",
-    "confidence": 0.3793,
+    "plate": "BXY8011",
+    "raw_text": "BXY8011",
+    "confidence": 0.245,
     "needs_review": true
    },
    "truth": null,
@@ -849,15 +850,15 @@
     0.765
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "8517",
-    "confidence": 0.1658,
-    "needs_review": true
+    "plate": "PXY8617",
+    "raw_text": "PXY8617",
+    "confidence": 0.4823,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "B51",
-    "confidence": 0.1882,
+    "raw_text": "DWY007",
+    "confidence": 0.204,
     "needs_review": true
    },
    "truth": null,
@@ -876,15 +877,15 @@
     0.804
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "2",
-    "confidence": 0.1755,
+    "plate": "BTX1011",
+    "raw_text": "B7X1011",
+    "confidence": 0.2441,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "YET",
-    "confidence": 0.0056,
+    "plate": "BZX0041",
+    "raw_text": "BZX0041",
+    "confidence": 0.3142,
     "needs_review": true
    },
    "truth": null,
@@ -903,8 +904,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "101X",
+    "confidence": 0.1514,
     "needs_review": true
    },
    "truth": null,
@@ -923,8 +924,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "5J5369",
+    "confidence": 0.1486,
     "needs_review": true
    },
    "truth": null,
@@ -943,8 +944,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "355",
+    "confidence": 0.1732,
     "needs_review": true
    },
    "truth": null,
@@ -963,8 +964,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "35",
+    "confidence": 0.1491,
     "needs_review": true
    },
    "truth": null,
@@ -983,8 +984,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "5JA33",
+    "confidence": 0.1073,
     "needs_review": true
    },
    "truth": null,
@@ -1023,8 +1024,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "WU4E J86",
-    "confidence": 0.1522,
+    "raw_text": "OJM938",
+    "confidence": 0.2925,
     "needs_review": true
    },
    "truth": null,
@@ -1043,8 +1044,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "X2A",
-    "confidence": 0.0567,
+    "raw_text": "OUX138",
+    "confidence": 0.1358,
     "needs_review": true
    },
    "truth": null,
@@ -1083,16 +1084,16 @@
     0.714
    ],
    "ocr_detected": {
-    "plate": "JSU0319",
-    "raw_text": "J5U 0319",
-    "confidence": 0.4869,
+    "plate": "YSD0319",
+    "raw_text": "YSD0319",
+    "confidence": 0.2818,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "JSU0319",
-    "raw_text": "JSU 0319",
-    "confidence": 0.7286,
-    "needs_review": false
+    "plate": "YGO0319",
+    "raw_text": "YGO0319",
+    "confidence": 0.267,
+    "needs_review": true
    },
    "truth": null,
    "error": null
@@ -1110,15 +1111,15 @@
     0.754
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "J50 IJIJ",
-    "confidence": 0.3402,
+    "plate": "SSD0319",
+    "raw_text": "SSD0319",
+    "confidence": 0.3667,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "438",
-    "confidence": 0.3145,
+    "plate": "FSD0319",
+    "raw_text": "FSD0319",
+    "confidence": 0.2414,
     "needs_review": true
    },
    "truth": null,
@@ -1137,15 +1138,15 @@
     0.763
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "50 0J9",
-    "confidence": 0.3571,
+    "plate": "SGD0319",
+    "raw_text": "SGDD319",
+    "confidence": 0.3367,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "49",
-    "confidence": 0.1682,
+    "plate": "JSO0319",
+    "raw_text": "JSO0319",
+    "confidence": 0.1979,
     "needs_review": true
    },
    "truth": null,
@@ -1164,16 +1165,16 @@
     0.769
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "074 0653",
-    "confidence": 0.807,
-    "needs_review": true
+    "plate": "BZT8559",
+    "raw_text": "BZT8559",
+    "confidence": 0.5418,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "OZI0659",
-    "raw_text": "0Z1 0659",
-    "confidence": 0.6201,
-    "needs_review": false
+    "plate": "QZT0559",
+    "raw_text": "QZT0559",
+    "confidence": 0.3129,
+    "needs_review": true
    },
    "truth": null,
    "error": null
@@ -1279,14 +1280,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "PD0663",
+    "confidence": 0.3074,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "DD0661",
+    "confidence": 0.1343,
     "needs_review": true
    },
    "truth": null,
@@ -1326,14 +1327,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "TEEP",
+    "confidence": 0.22,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "TE1",
+    "confidence": 0.1641,
     "needs_review": true
    },
    "truth": null,
@@ -1352,15 +1353,15 @@
     0.824
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "UKD6601",
+    "raw_text": "UKD6601",
+    "confidence": 0.1904,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "UK6620",
+    "confidence": 0.1193,
     "needs_review": true
    },
    "truth": null,
@@ -1379,8 +1380,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "24",
+    "confidence": 0.1868,
     "needs_review": true
    },
    "truth": null,
@@ -1399,8 +1400,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "C252",
+    "confidence": 0.2161,
     "needs_review": true
    },
    "truth": null,
@@ -1440,14 +1441,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "PM8333",
+    "confidence": 0.2025,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "PMB7337",
+    "raw_text": "PMB7337",
+    "confidence": 0.3467,
     "needs_review": true
    },
    "truth": null,
@@ -1466,15 +1467,15 @@
     0.747
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "0",
-    "confidence": 0.4633,
+    "plate": "PVB7337",
+    "raw_text": "PVB7337",
+    "confidence": 0.2246,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "63",
-    "confidence": 0.1182,
+    "plate": "AMB1331",
+    "raw_text": "AMB1331",
+    "confidence": 0.1678,
     "needs_review": true
    },
    "truth": null,
@@ -1493,9 +1494,9 @@
     0.77
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "EBE0800",
+    "raw_text": "EBE0800",
+    "confidence": 0.1453,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -1540,8 +1541,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "327",
+    "confidence": 0.1845,
     "needs_review": true
    },
    "truth": null,
@@ -1560,8 +1561,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "22FN",
+    "confidence": 0.2641,
     "needs_review": true
    },
    "truth": null,
@@ -1587,8 +1588,8 @@
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "7",
+    "confidence": 0.1418,
     "needs_review": true
    },
    "truth": null,
@@ -1608,14 +1609,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "91X3444",
+    "confidence": 0.2789,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "9113",
+    "confidence": 0.352,
     "needs_review": true
    },
    "truth": null,
@@ -1635,14 +1636,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "81443",
+    "confidence": 0.158,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "6644",
+    "confidence": 0.1133,
     "needs_review": true
    },
    "truth": null,
@@ -1661,8 +1662,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "65",
+    "confidence": 0.1236,
     "needs_review": true
    },
    "truth": null,
@@ -1681,8 +1682,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "3715",
+    "confidence": 0.1444,
     "needs_review": true
    },
    "truth": null,
@@ -1707,9 +1708,9 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "OLO1563",
-    "raw_text": "OL0 1563",
-    "confidence": 0.5374,
+    "plate": "BLD1563",
+    "raw_text": "BLD1563",
+    "confidence": 0.298,
     "needs_review": true
    },
    "truth": null,
@@ -1728,15 +1729,15 @@
     0.763
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "13",
-    "confidence": 0.5861,
+    "plate": "PAI5558",
+    "raw_text": "PA1555B",
+    "confidence": 0.2825,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "65",
-    "confidence": 0.6539,
+    "plate": "FAI5552",
+    "raw_text": "FA15552",
+    "confidence": 0.3551,
     "needs_review": true
    },
    "truth": null,
@@ -1795,8 +1796,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "WA1410",
+    "confidence": 0.1319,
     "needs_review": true
    },
    "truth": null,
@@ -1814,9 +1815,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "ASA3322",
+    "raw_text": "A5A3322",
+    "confidence": 0.0765,
     "needs_review": true
    },
    "truth": null,
@@ -1835,8 +1836,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "155233",
+    "confidence": 0.0857,
     "needs_review": true
    },
    "truth": null,
@@ -1854,9 +1855,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "BAA3333",
+    "raw_text": "BA43333",
+    "confidence": 0.1074,
     "needs_review": true
    },
    "truth": null,
@@ -1875,10 +1876,10 @@
     0.74
    ],
    "ocr_detected": {
-    "plate": "PJH5H21",
-    "raw_text": "PJHSH2J",
-    "confidence": 0.0993,
-    "needs_review": true
+    "plate": "PJN5H91",
+    "raw_text": "PJN5H91",
+    "confidence": 0.999,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
@@ -1902,16 +1903,16 @@
     0.919
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "E",
-    "confidence": 0.0781,
+    "plate": "SKO7802",
+    "raw_text": "SKO7802",
+    "confidence": 0.2784,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "T",
-    "confidence": 0.1344,
-    "needs_review": true
+    "plate": "PKQ7802",
+    "raw_text": "PKQ7802",
+    "confidence": 0.7212,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -1929,15 +1930,15 @@
     0.794
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "F0",
-    "confidence": 0.1065,
+    "plate": "VXQ7607",
+    "raw_text": "VXQ7607",
+    "confidence": 0.2113,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "77666",
+    "confidence": 0.1503,
     "needs_review": true
    },
    "truth": null,
@@ -1957,8 +1958,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "741",
-    "confidence": 0.0644,
+    "raw_text": "ZX948",
+    "confidence": 0.1493,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -1982,9 +1983,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "FZX5901",
+    "raw_text": "FZX590J",
+    "confidence": 0.1409,
     "needs_review": true
    },
    "truth": null,
@@ -2002,9 +2003,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "374",
-    "confidence": 0.1068,
+    "plate": "FXX5933",
+    "raw_text": "FXX5933",
+    "confidence": 0.1789,
     "needs_review": true
    },
    "truth": null,
@@ -2023,15 +2024,15 @@
     0.785
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "PWM5003",
+    "raw_text": "PWM5003",
+    "confidence": 0.2303,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "371",
-    "confidence": 0.1474,
+    "raw_text": "PWX58033",
+    "confidence": 0.331,
     "needs_review": true
    },
    "truth": null,
@@ -2050,16 +2051,16 @@
     0.944
    ],
    "ocr_detected": {
-    "plate": "JCC9386",
-    "raw_text": "JCC 9386",
-    "confidence": 0.2103,
-    "needs_review": true
+    "plate": "SOF9384",
+    "raw_text": "50F9384",
+    "confidence": 0.8877,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "JCC9386",
-    "raw_text": "JCC 9386",
-    "confidence": 0.223,
-    "needs_review": true
+    "plate": "SOF9384",
+    "raw_text": "50F9384",
+    "confidence": 0.6948,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -2077,15 +2078,15 @@
     0.82
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "I0 5394",
-    "confidence": 0.2796,
+    "plate": "SOF5344",
+    "raw_text": "50F5344",
+    "confidence": 0.3173,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "9394",
-    "confidence": 0.1308,
+    "raw_text": "30F9384",
+    "confidence": 0.4434,
     "needs_review": true
    },
    "truth": null,
@@ -2104,15 +2105,15 @@
     0.844
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "JOP5384",
+    "raw_text": "J0P5384",
+    "confidence": 0.5612,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "3",
-    "confidence": 0.1888,
+    "raw_text": "30P9384",
+    "confidence": 0.3452,
     "needs_review": true
    },
    "truth": null,
@@ -2132,14 +2133,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "30F5384",
+    "confidence": 0.2569,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "304",
-    "confidence": 0.3971,
+    "plate": "ZOH5384",
+    "raw_text": "20H5384",
+    "confidence": 0.1449,
     "needs_review": true
    },
    "truth": null,
@@ -2159,14 +2160,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "30P9J84",
+    "confidence": 0.4483,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "9984",
-    "confidence": 0.1146,
+    "plate": "SOP9384",
+    "raw_text": "50P9384",
+    "confidence": 0.4168,
     "needs_review": true
    },
    "truth": null,
@@ -2191,9 +2192,9 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "9304",
-    "confidence": 0.201,
+    "plate": "SOP9384",
+    "raw_text": "50P9384",
+    "confidence": 0.2504,
     "needs_review": true
    },
    "truth": null,
@@ -2212,8 +2213,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "39923AA",
+    "confidence": 0.1173,
     "needs_review": true
    },
    "truth": null,
@@ -2232,8 +2233,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "PKK2N4",
+    "confidence": 0.6561,
     "needs_review": true
    },
    "truth": null,
@@ -2300,14 +2301,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "7KC44",
+    "confidence": 0.1391,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "ZWW7444",
+    "raw_text": "2WW7444",
+    "confidence": 0.08,
     "needs_review": true
    },
    "truth": null,
@@ -2346,16 +2347,16 @@
     0.871
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "JSG7321",
+    "raw_text": "J5GT321",
+    "confidence": 0.9076,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "JSG7321",
+    "raw_text": "J5GT321",
+    "confidence": 0.8158,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -2379,9 +2380,9 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "55G",
-    "confidence": 0.776,
+    "plate": "JSG7321",
+    "raw_text": "JSG7321",
+    "confidence": 0.353,
     "needs_review": true
    },
    "truth": null,
@@ -2400,15 +2401,15 @@
     0.741
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "AGE4329",
+    "raw_text": "AGE4329",
+    "confidence": 0.1691,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "ASG1320",
+    "raw_text": "A5G1320",
+    "confidence": 0.3413,
     "needs_review": true
    },
    "truth": null,
@@ -2428,14 +2429,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "95ET324",
+    "confidence": 0.3788,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "35E1324",
+    "confidence": 0.4956,
     "needs_review": true
    },
    "truth": null,
@@ -2455,15 +2456,15 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "35GT33",
+    "confidence": 0.2605,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "JSG7324",
+    "raw_text": "J5GT324",
+    "confidence": 0.5225,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -2480,10 +2481,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "145",
-    "confidence": 0.1134,
-    "needs_review": true
+    "plate": "JOY7823",
+    "raw_text": "JOY7823",
+    "confidence": 0.4848,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -2502,14 +2503,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "J9Y723",
+    "confidence": 0.2719,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "JQY723",
+    "confidence": 0.4898,
     "needs_review": true
    },
    "truth": null,
@@ -2528,8 +2529,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "4B",
-    "confidence": 0.0227,
+    "raw_text": "J9Y7823",
+    "confidence": 0.4597,
     "needs_review": true
    },
    "truth": null,
@@ -2548,8 +2549,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "93NA222",
+    "confidence": 0.2404,
     "needs_review": true
    },
    "truth": null,
@@ -2567,10 +2568,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "31",
-    "confidence": 0.1277,
-    "needs_review": true
+    "plate": "DWA9252",
+    "raw_text": "DWA9252",
+    "confidence": 0.5287,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -2588,8 +2589,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "82",
-    "confidence": 0.1292,
+    "raw_text": "DK3222",
+    "confidence": 0.4218,
     "needs_review": true
    },
    "truth": null,
@@ -2608,15 +2609,15 @@
     0.792
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "020",
-    "confidence": 0.9971,
-    "needs_review": true
+    "plate": "OZQ8224",
+    "raw_text": "0ZQ8224",
+    "confidence": 0.457,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "020 0228",
-    "confidence": 0.9584,
+    "plate": "OZQ0224",
+    "raw_text": "0ZQ0224",
+    "confidence": 0.4268,
     "needs_review": true
    },
    "truth": null,
@@ -2635,15 +2636,15 @@
     0.855
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "SEW4433",
+    "raw_text": "5EW4433",
+    "confidence": 0.2036,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "5EW433",
+    "confidence": 0.13,
     "needs_review": true
    },
    "truth": null,
@@ -2661,9 +2662,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "88",
-    "confidence": 0.1632,
+    "plate": "KZA5715",
+    "raw_text": "KZA5715",
+    "confidence": 0.2226,
     "needs_review": true
    },
    "truth": null,
@@ -2722,16 +2723,16 @@
     0.908
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "LO 6479",
-    "confidence": 0.6866,
-    "needs_review": true
+    "plate": "PLB6179",
+    "raw_text": "PLB6179",
+    "confidence": 0.8609,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "EHB",
-    "confidence": 0.1204,
-    "needs_review": true
+    "plate": "PLD6179",
+    "raw_text": "PLD6179",
+    "confidence": 0.9362,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -2749,15 +2750,15 @@
     0.825
    ],
    "ocr_detected": {
-    "plate": "PLD6178",
-    "raw_text": "PLD 6178",
-    "confidence": 0.6617,
+    "plate": "PLP6179",
+    "raw_text": "PLP6179",
+    "confidence": 0.7677,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "RLO6174",
-    "raw_text": "RLO 6174",
-    "confidence": 0.2132,
+    "plate": "PZD6179",
+    "raw_text": "PZD6179",
+    "confidence": 0.2778,
     "needs_review": true
    },
    "truth": null,
@@ -2776,15 +2777,15 @@
     0.764
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "6",
-    "confidence": 0.6311,
-    "needs_review": true
+    "plate": "ELP6114",
+    "raw_text": "ELP6114",
+    "confidence": 0.4741,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "TLD6174",
-    "raw_text": "TLD 6174",
-    "confidence": 0.3723,
+    "plate": "PLT6119",
+    "raw_text": "PLT6119",
+    "confidence": 0.3942,
     "needs_review": true
    },
    "truth": null,
@@ -2802,14 +2803,14 @@
    "ious": [],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "74172066",
-    "confidence": 0.2037,
+    "raw_text": "73H22000",
+    "confidence": 0.2298,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "P4Q 111",
-    "confidence": 0.2124,
+    "raw_text": "P17735",
+    "confidence": 0.2919,
     "needs_review": true
    },
    "truth": null,
@@ -2829,14 +2830,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "J",
-    "confidence": 0.1752,
+    "raw_text": "RLK576",
+    "confidence": 0.1848,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "Q9",
-    "confidence": 0.1263,
+    "raw_text": "RLEEE52",
+    "confidence": 0.2118,
     "needs_review": true
    },
    "truth": null,
@@ -2855,8 +2856,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "7770A",
+    "confidence": 0.1085,
     "needs_review": true
    },
    "truth": null,
@@ -2876,14 +2877,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "197",
-    "confidence": 0.2265,
+    "raw_text": "PJC743",
+    "confidence": 0.704,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "531",
-    "confidence": 0.0329,
+    "raw_text": "PJ7443",
+    "confidence": 0.3427,
     "needs_review": true
    },
    "truth": null,
@@ -2902,16 +2903,16 @@
     0.904
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "6",
-    "confidence": 0.9307,
-    "needs_review": true
+    "plate": "UZR6798",
+    "raw_text": "UZR6798",
+    "confidence": 0.6885,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "2R 621",
-    "confidence": 0.2645,
-    "needs_review": true
+    "plate": "UZR6798",
+    "raw_text": "UZR6798",
+    "confidence": 0.518,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -2930,14 +2931,14 @@
    ],
    "ocr_detected": {
     "plate": "NZM8373",
-    "raw_text": "NZM 8373",
-    "confidence": 0.9839,
+    "raw_text": "NZM8373",
+    "confidence": 0.9908,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "NZM8373",
-    "raw_text": "NZM 8373",
-    "confidence": 0.9983,
+    "raw_text": "NZM8373",
+    "confidence": 0.9992,
     "needs_review": false
    },
    "truth": null,
@@ -2955,9 +2956,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": "NZB8373",
-    "raw_text": "NZ8 8373",
-    "confidence": 0.6154,
+    "plate": "NZM8373",
+    "raw_text": "NZM8373",
+    "confidence": 0.9965,
     "needs_review": false
    },
    "truth": null,
@@ -2975,10 +2976,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "80B6",
-    "confidence": 0.0719,
-    "needs_review": true
+    "plate": "JME0086",
+    "raw_text": "JME0086",
+    "confidence": 0.985,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3004,7 +3005,7 @@
    "ocr_ground_truth": {
     "plate": null,
     "raw_text": "JRY",
-    "confidence": 0.9599,
+    "confidence": 0.9874,
     "needs_review": true
    },
    "truth": null,
@@ -3051,14 +3052,14 @@
    ],
    "ocr_detected": {
     "plate": "JSY8838",
-    "raw_text": "JSY 8838",
-    "confidence": 0.9951,
+    "raw_text": "JSY8838",
+    "confidence": 0.9724,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JSY8838",
-    "raw_text": "JSY 8838",
-    "confidence": 0.9723,
+    "raw_text": "JSY8838",
+    "confidence": 0.9578,
     "needs_review": false
    },
    "truth": null,
@@ -3078,8 +3079,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "NU898",
+    "confidence": 0.3959,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -3103,9 +3104,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "NYH7139",
+    "raw_text": "NYH7139",
+    "confidence": 0.2485,
     "needs_review": true
    },
    "truth": null,
@@ -3124,15 +3125,15 @@
     0.932
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "DUZ1239",
+    "raw_text": "DUZ1239",
+    "confidence": 0.6547,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "DUZ1239",
+    "raw_text": "DUZ1239",
+    "confidence": 0.3312,
     "needs_review": true
    },
    "truth": null,
@@ -3154,7 +3155,7 @@
     "plate": "DUW6341",
     "raw_text": "DUW 6341",
     "confidence": 0.571,
-    "needs_review": true
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "DUW6341",
@@ -3178,15 +3179,15 @@
     0.894
    ],
    "ocr_detected": {
-    "plate": "PMG4173",
-    "raw_text": "PMG 4173",
-    "confidence": 0.9033,
+    "plate": "PWG4173",
+    "raw_text": "PWG4173",
+    "confidence": 0.6757,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "PMG4173",
-    "raw_text": "PMG 4173",
-    "confidence": 0.7849,
+    "plate": "PWG4173",
+    "raw_text": "PWG4173",
+    "confidence": 0.5388,
     "needs_review": false
    },
    "truth": null,
@@ -3205,15 +3206,15 @@
     0.744
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "8",
-    "confidence": 0.9999,
-    "needs_review": true
+    "plate": "JMR5798",
+    "raw_text": "JMR5798",
+    "confidence": 0.7173,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "4498",
-    "confidence": 0.1233,
+    "raw_text": "JMR578",
+    "confidence": 0.9692,
     "needs_review": true
    },
    "truth": null,
@@ -3252,16 +3253,16 @@
     0.814
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "7786",
-    "confidence": 0.9426,
-    "needs_review": true
+    "plate": "JOI7786",
+    "raw_text": "JOI7786",
+    "confidence": 0.8416,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "2786",
-    "confidence": 0.5845,
-    "needs_review": true
+    "plate": "JOI7786",
+    "raw_text": "JOI7786",
+    "confidence": 0.6259,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3298,10 +3299,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "5389",
-    "confidence": 0.4692,
-    "needs_review": true
+    "plate": "PLJ5389",
+    "raw_text": "PLJ5389",
+    "confidence": 0.5649,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3344,15 +3345,15 @@
     0.692
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "0566",
-    "confidence": 0.3157,
-    "needs_review": true
+    "plate": "NZO5664",
+    "raw_text": "NZ0566A",
+    "confidence": 0.9582,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "NZA0566",
-    "raw_text": "NZA 0566",
-    "confidence": 0.9176,
+    "raw_text": "NZA0566",
+    "confidence": 0.9566,
     "needs_review": false
    },
    "truth": null,
@@ -3372,14 +3373,14 @@
    ],
    "ocr_detected": {
     "plate": "OUO6955",
-    "raw_text": "OU0 6955",
-    "confidence": 0.7301,
-    "needs_review": false
+    "raw_text": "OUO6955",
+    "confidence": 0.4189,
+    "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": "OUO6955",
-    "raw_text": "0U0 6955",
-    "confidence": 0.7201,
+    "raw_text": "OUO6955",
+    "confidence": 0.4983,
     "needs_review": false
    },
    "truth": null,
@@ -3405,8 +3406,8 @@
    },
    "ocr_ground_truth": {
     "plate": "JSX0626",
-    "raw_text": "JSX 0626",
-    "confidence": 0.8111,
+    "raw_text": "JSX0626",
+    "confidence": 0.9958,
     "needs_review": false
    },
    "truth": null,
@@ -3425,15 +3426,15 @@
     0.892
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "0",
-    "confidence": 0.1059,
-    "needs_review": true
+    "plate": "PKT9170",
+    "raw_text": "PKT9170",
+    "confidence": 0.9761,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "91 19",
-    "confidence": 0.9229,
+    "plate": "PKT9170",
+    "raw_text": "PKT9170",
+    "confidence": 0.2834,
     "needs_review": true
    },
    "truth": null,
@@ -3513,14 +3514,14 @@
    ],
    "ocr_detected": {
     "plate": "EXL1040",
-    "raw_text": "EXL 1040",
+    "raw_text": "EXL1040",
     "confidence": 0.9982,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "EXL1040",
-    "raw_text": "EXL 1040",
-    "confidence": 0.9985,
+    "raw_text": "EXL1040",
+    "confidence": 0.9976,
     "needs_review": false
    },
    "truth": null,
@@ -3540,8 +3541,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "I",
-    "confidence": 0.0612,
+    "raw_text": "14",
+    "confidence": 0.1448,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -3567,14 +3568,14 @@
    ],
    "ocr_detected": {
     "plate": "JSP0221",
-    "raw_text": "JSP 0221",
-    "confidence": 0.7978,
+    "raw_text": "JSP0221",
+    "confidence": 0.9973,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JSP0221",
-    "raw_text": "JSP 0221",
-    "confidence": 0.9151,
+    "raw_text": "JSP0221",
+    "confidence": 0.9981,
     "needs_review": false
    },
    "truth": null,
@@ -3592,10 +3593,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "078 6298",
-    "confidence": 0.4257,
-    "needs_review": true
+    "plate": "UZR6798",
+    "raw_text": "UZR6798",
+    "confidence": 0.6262,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3611,16 +3612,16 @@
    "false_positives": 1,
    "ious": [],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "G0",
-    "confidence": 0.1983,
+    "plate": "DUG6338",
+    "raw_text": "DU6633B",
+    "confidence": 0.2792,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "849",
-    "confidence": 0.5174,
-    "needs_review": true
+    "plate": "OUI6038",
+    "raw_text": "OUI6038",
+    "confidence": 0.6564,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3638,16 +3639,16 @@
     0.723
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "89",
-    "confidence": 0.3329,
+    "plate": "OUD2055",
+    "raw_text": "OUD2055",
+    "confidence": 0.3272,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "OUJ2069",
+    "raw_text": "0UJ2069",
+    "confidence": 0.5649,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3665,15 +3666,15 @@
     0.813
    ],
    "ocr_detected": {
-    "plate": "UUF9269",
-    "raw_text": "UUF 9269",
-    "confidence": 0.8149,
+    "plate": "DUF9269",
+    "raw_text": "DUF9269",
+    "confidence": 0.7065,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "UUF9259",
-    "raw_text": "UUF 9259",
-    "confidence": 0.6982,
+    "plate": "UUF9269",
+    "raw_text": "UUF9269",
+    "confidence": 0.4977,
     "needs_review": false
    },
    "truth": null,
@@ -3692,8 +3693,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "73",
+    "confidence": 0.1165,
     "needs_review": true
    },
    "truth": null,
@@ -3711,10 +3712,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "5 2482",
-    "confidence": 0.7871,
-    "needs_review": true
+    "plate": "JSB2484",
+    "raw_text": "JSB24B4",
+    "confidence": 0.5997,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3733,15 +3734,15 @@
    ],
    "ocr_detected": {
     "plate": "OKU5105",
-    "raw_text": "OKU 5105",
-    "confidence": 0.973,
-    "needs_review": true
+    "raw_text": "OKU5105",
+    "confidence": 0.9615,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "OKU5405",
-    "raw_text": "OKU 5405",
-    "confidence": 0.8165,
-    "needs_review": true
+    "plate": "OKU5105",
+    "raw_text": "OKU5105",
+    "confidence": 0.9835,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3759,15 +3760,15 @@
     0.769
    ],
    "ocr_detected": {
-    "plate": "NTG5142",
-    "raw_text": "NTG 5142",
-    "confidence": 0.7662,
+    "plate": "NTG5742",
+    "raw_text": "NTG5742",
+    "confidence": 0.9983,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "NIG5142",
-    "raw_text": "NIG 5142",
-    "confidence": 0.9298,
+    "plate": "NTG5742",
+    "raw_text": "NTG5742",
+    "confidence": 0.9991,
     "needs_review": false
    },
    "truth": null,
@@ -3787,14 +3788,14 @@
    ],
    "ocr_detected": {
     "plate": "NTT8905",
-    "raw_text": "NTT 8905",
-    "confidence": 0.947,
-    "needs_review": true
+    "raw_text": "NTT8905",
+    "confidence": 0.9893,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "NJT8905",
-    "raw_text": "NJT 8905",
-    "confidence": 0.8622,
+    "plate": "NTT8905",
+    "raw_text": "NTT8905",
+    "confidence": 0.984,
     "needs_review": false
    },
    "truth": null,
@@ -3816,7 +3817,7 @@
     "plate": "OVI0304",
     "raw_text": "OVI 0304",
     "confidence": 0.5758,
-    "needs_review": true
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
@@ -3841,14 +3842,14 @@
    ],
    "ocr_detected": {
     "plate": "PLK1466",
-    "raw_text": "PLK 1466",
-    "confidence": 0.9962,
+    "raw_text": "PLK1466",
+    "confidence": 0.9838,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PLK1466",
-    "raw_text": "PLK 1466",
-    "confidence": 0.9971,
+    "raw_text": "PLK1466",
+    "confidence": 0.9714,
     "needs_review": false
    },
    "truth": null,
@@ -3867,8 +3868,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "JR38",
+    "confidence": 0.3711,
     "needs_review": true
    },
    "truth": null,
@@ -3886,10 +3887,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "B8",
-    "confidence": 0.067,
-    "needs_review": true
+    "plate": "PKU6892",
+    "raw_text": "PKU6892",
+    "confidence": 0.7465,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3928,15 +3929,15 @@
    ],
    "ocr_detected": {
     "plate": "OZG0512",
-    "raw_text": "0ZG 0512",
-    "confidence": 0.6129,
+    "raw_text": "OZG0512",
+    "confidence": 0.9221,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "OZG0542",
-    "raw_text": "0ZG 0542",
-    "confidence": 0.5492,
-    "needs_review": true
+    "plate": "OZG0512",
+    "raw_text": "OZG0512",
+    "confidence": 0.9433,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3954,16 +3955,16 @@
     0.846
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "885",
-    "confidence": 0.3458,
-    "needs_review": true
+    "plate": "OZG7812",
+    "raw_text": "OZG7812",
+    "confidence": 0.4904,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "0Z6 78 2",
-    "confidence": 0.2375,
-    "needs_review": true
+    "plate": "OZG7812",
+    "raw_text": "OZG7812",
+    "confidence": 0.5321,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -3981,16 +3982,16 @@
     0.883
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "ST",
-    "confidence": 0.317,
-    "needs_review": true
+    "plate": "OZG7812",
+    "raw_text": "OZG7812",
+    "confidence": 0.8265,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "026 7812",
-    "confidence": 0.8748,
-    "needs_review": true
+    "plate": "OZG7812",
+    "raw_text": "OZG7812",
+    "confidence": 0.9464,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4009,15 +4010,15 @@
    ],
    "ocr_detected": {
     "plate": "NZH5523",
-    "raw_text": "NZH 5523",
-    "confidence": 0.9984,
-    "needs_review": true
+    "raw_text": "NZH5523",
+    "confidence": 0.9997,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "NZH5523",
-    "raw_text": "NZH 5523",
-    "confidence": 0.9038,
-    "needs_review": true
+    "raw_text": "NZH5523",
+    "confidence": 0.9998,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4035,16 +4036,16 @@
     0.845
    ],
    "ocr_detected": {
-    "plate": "PKV5941",
-    "raw_text": "IPKV 5941",
-    "confidence": 0.4415,
-    "needs_review": true
+    "plate": "PKW5941",
+    "raw_text": "PKW5941",
+    "confidence": 0.9847,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "PKM5941",
-    "raw_text": "YPKM 5941",
-    "confidence": 0.3437,
-    "needs_review": true
+    "plate": "PKW5941",
+    "raw_text": "PKW5941",
+    "confidence": 0.9822,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4062,16 +4063,16 @@
     0.88
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "E 15883",
-    "confidence": 0.7542,
-    "needs_review": true
+    "plate": "OLE5883",
+    "raw_text": "OLE5883",
+    "confidence": 0.657,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "1885",
-    "confidence": 0.3238,
-    "needs_review": true
+    "plate": "OLE5883",
+    "raw_text": "OLE5883",
+    "confidence": 0.577,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4090,14 +4091,14 @@
    ],
    "ocr_detected": {
     "plate": "NYR4403",
-    "raw_text": "NYR 4403",
-    "confidence": 0.8319,
+    "raw_text": "NYR4403",
+    "confidence": 0.9479,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "NYR4403",
-    "raw_text": "NYR 4403",
-    "confidence": 0.9556,
+    "raw_text": "NYR4403",
+    "confidence": 0.9988,
     "needs_review": false
    },
    "truth": null,
@@ -4116,15 +4117,15 @@
     0.801
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "JR 0756",
-    "confidence": 0.8711,
+    "plate": "JFA0756",
+    "raw_text": "JFA0756",
+    "confidence": 0.2463,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "VGI0756",
-    "raw_text": "VG 10756",
-    "confidence": 0.3324,
+    "plate": "JFA0756",
+    "raw_text": "JFA0756",
+    "confidence": 0.1752,
     "needs_review": true
    },
    "truth": null,
@@ -4143,9 +4144,9 @@
     0.61
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "Q",
-    "confidence": 0.2942,
+    "plate": "CHH1111",
+    "raw_text": "CHH1111",
+    "confidence": 0.1082,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -4169,10 +4170,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "DZI1084",
+    "raw_text": "DZI1084",
+    "confidence": 0.4742,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4217,15 +4218,15 @@
     0.814
    ],
    "ocr_detected": {
-    "plate": "OZP7630",
-    "raw_text": "OZP 7630",
-    "confidence": 0.5154,
-    "needs_review": true
+    "plate": "OZP7680",
+    "raw_text": "OZP7680",
+    "confidence": 0.5878,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "412",
-    "confidence": 0.9465,
+    "plate": "TKI7472",
+    "raw_text": "7KI7472",
+    "confidence": 0.1629,
     "needs_review": true
    },
    "truth": null,
@@ -4244,15 +4245,15 @@
     0.857
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "0ZP 680",
-    "confidence": 0.9952,
-    "needs_review": true
+    "plate": "OZP7680",
+    "raw_text": "OZP7680",
+    "confidence": 0.5925,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OZP7680",
-    "raw_text": "OZP 7680",
-    "confidence": 0.9525,
+    "raw_text": "OZP7680",
+    "confidence": 0.7675,
     "needs_review": false
    },
    "truth": null,
@@ -4271,8 +4272,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "1",
-    "confidence": 0.2651,
+    "raw_text": "DK1742",
+    "confidence": 0.4055,
     "needs_review": true
    },
    "truth": null,
@@ -4290,9 +4291,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": "OZP7680",
-    "raw_text": "0 0ZP 7680",
-    "confidence": 0.6427,
+    "plate": "OZR7680",
+    "raw_text": "OZR7680",
+    "confidence": 0.6042,
     "needs_review": false
    },
    "truth": null,
@@ -4311,16 +4312,16 @@
     0.804
    ],
    "ocr_detected": {
-    "plate": "OZT1091",
-    "raw_text": "0ZT 1091",
-    "confidence": 0.3986,
+    "plate": "DZT0911",
+    "raw_text": "DZT0911",
+    "confidence": 0.43,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "02 09",
-    "confidence": 0.8638,
-    "needs_review": true
+    "plate": "OZT0911",
+    "raw_text": "OZT0911",
+    "confidence": 0.6907,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4337,9 +4338,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "TST7343",
+    "raw_text": "TST7343",
+    "confidence": 0.1712,
     "needs_review": true
    },
    "truth": null,
@@ -4357,10 +4358,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "W53",
-    "confidence": 0.3392,
-    "needs_review": true
+    "plate": "JSE3542",
+    "raw_text": "JSE3542",
+    "confidence": 0.5564,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4378,15 +4379,15 @@
     0.575
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "83",
-    "confidence": 0.5407,
+    "plate": "AZP0736",
+    "raw_text": "AZP0736",
+    "confidence": 0.4332,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "TZP0136",
-    "raw_text": "TZP 0136",
-    "confidence": 0.7249,
+    "plate": "NZP0736",
+    "raw_text": "NZP0736",
+    "confidence": 0.8595,
     "needs_review": false
    },
    "truth": null,
@@ -4410,8 +4411,8 @@
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "3",
-    "confidence": 0.0521,
+    "raw_text": "NZJ62B",
+    "confidence": 0.6172,
     "needs_review": true
    },
    "truth": null,
@@ -4430,16 +4431,16 @@
     0.933
    ],
    "ocr_detected": {
-    "plate": "NYL2741",
-    "raw_text": "NYL 2741",
-    "confidence": 0.7262,
+    "plate": "NYL2717",
+    "raw_text": "NYL271T",
+    "confidence": 0.5821,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "NYL 271",
-    "confidence": 0.8028,
-    "needs_review": true
+    "plate": "NYL2717",
+    "raw_text": "NYL271T",
+    "confidence": 0.7134,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4457,15 +4458,15 @@
     0.873
    ],
    "ocr_detected": {
-    "plate": "OUX5748",
-    "raw_text": "0UX 5748",
-    "confidence": 0.983,
-    "needs_review": true
+    "plate": "DUX5748",
+    "raw_text": "DUX5748",
+    "confidence": 0.6166,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OUX5748",
-    "raw_text": "OUX 5748",
-    "confidence": 0.9506,
+    "raw_text": "OUX5748",
+    "confidence": 0.75,
     "needs_review": false
    },
    "truth": null,
@@ -4484,15 +4485,15 @@
     0.908
    ],
    "ocr_detected": {
-    "plate": "NZU6027",
-    "raw_text": "NZU 6027",
-    "confidence": 0.813,
-    "needs_review": false
+    "plate": "NLU6027",
+    "raw_text": "NLU6027",
+    "confidence": 0.1036,
+    "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "NZU6027",
-    "raw_text": "N2U 6027",
-    "confidence": 0.5265,
+    "plate": "NAU6027",
+    "raw_text": "N4U6027",
+    "confidence": 0.1469,
     "needs_review": true
    },
    "truth": null,
@@ -4512,15 +4513,15 @@
    ],
    "ocr_detected": {
     "plate": "OZH4918",
-    "raw_text": "0ZH 4918",
-    "confidence": 0.7769,
+    "raw_text": "OZH4918",
+    "confidence": 0.8998,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "4918 ZH",
-    "confidence": 0.9931,
-    "needs_review": true
+    "plate": "OZH4918",
+    "raw_text": "OZH4918",
+    "confidence": 0.8687,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4539,15 +4540,15 @@
    ],
    "ocr_detected": {
     "plate": "JSE3886",
-    "raw_text": "JSE 3886",
-    "confidence": 0.9954,
+    "raw_text": "JSE3886",
+    "confidence": 0.9988,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JSE3886",
-    "raw_text": "JSE 3886",
+    "raw_text": "JSE3886",
     "confidence": 0.9994,
-    "needs_review": true
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4564,9 +4565,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "DAA4455",
+    "raw_text": "D444455",
+    "confidence": 0.1144,
     "needs_review": true
    },
    "truth": null,
@@ -4586,14 +4587,14 @@
    ],
    "ocr_detected": {
     "plate": "JSR8161",
-    "raw_text": "JSR 8161",
-    "confidence": 0.94,
+    "raw_text": "JSR8161",
+    "confidence": 0.9982,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JSR8161",
-    "raw_text": "JSR 8161",
-    "confidence": 0.9795,
+    "raw_text": "JSR8161",
+    "confidence": 0.9963,
     "needs_review": false
    },
    "truth": null,
@@ -4613,14 +4614,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "3347",
+    "confidence": 0.9541,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "3347",
+    "confidence": 0.6791,
     "needs_review": true
    },
    "truth": null,
@@ -4640,8 +4641,8 @@
    ],
    "ocr_detected": {
     "plate": "PJC2438",
-    "raw_text": "PJC 2438",
-    "confidence": 0.9635,
+    "raw_text": "PJC2438",
+    "confidence": 0.7148,
     "needs_review": false
    },
    "ocr_ground_truth": {
@@ -4666,16 +4667,16 @@
     0.88
    ],
    "ocr_detected": {
-    "plate": "JOY7622",
-    "raw_text": "J0Y 7622",
-    "confidence": 0.6781,
+    "plate": "JQY7622",
+    "raw_text": "JQY7622",
+    "confidence": 0.5427,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JOY7622",
-    "raw_text": "J0Y 7622",
-    "confidence": 0.5192,
-    "needs_review": true
+    "raw_text": "JOY7622",
+    "confidence": 0.5202,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4692,9 +4693,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "JN E1",
-    "confidence": 0.2571,
+    "plate": "AAD7678",
+    "raw_text": "AAD7678",
+    "confidence": 0.2784,
     "needs_review": true
    },
    "truth": null,
@@ -4713,16 +4714,16 @@
     0.852
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "1734",
-    "confidence": 0.9794,
-    "needs_review": true
+    "plate": "JQI1734",
+    "raw_text": "JQI1734",
+    "confidence": 0.9831,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "0 1734",
-    "confidence": 0.954,
-    "needs_review": true
+    "plate": "JQI1734",
+    "raw_text": "JQI1734",
+    "confidence": 0.997,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4740,15 +4741,15 @@
     0.922
    ],
    "ocr_detected": {
-    "plate": "PJN2455",
-    "raw_text": "PJN 2455",
-    "confidence": 0.756,
+    "plate": "PJN2155",
+    "raw_text": "PJN2155",
+    "confidence": 0.9989,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PJN2155",
-    "raw_text": "PJN 2155",
-    "confidence": 0.968,
+    "raw_text": "PJN2155",
+    "confidence": 0.9976,
     "needs_review": false
    },
    "truth": null,
@@ -4767,16 +4768,16 @@
     0.899
    ],
    "ocr_detected": {
-    "plate": "NZO3979",
-    "raw_text": "NZO 3979",
-    "confidence": 0.9528,
-    "needs_review": false
+    "plate": "NZD3979",
+    "raw_text": "NZD3979",
+    "confidence": 0.4217,
+    "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": "NZO3979",
-    "raw_text": "NZ0 3979",
-    "confidence": 0.507,
-    "needs_review": true
+    "raw_text": "NZO3979",
+    "confidence": 0.8856,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4794,15 +4795,15 @@
     0.935
    ],
    "ocr_detected": {
-    "plate": "OKP9428",
-    "raw_text": "OKP 9428",
-    "confidence": 0.9933,
+    "plate": "OKP9488",
+    "raw_text": "OKP9488",
+    "confidence": 0.5164,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OKP9428",
-    "raw_text": "OKP 9428",
-    "confidence": 0.9918,
+    "raw_text": "OKP9428",
+    "confidence": 0.948,
     "needs_review": false
    },
    "truth": null,
@@ -4847,10 +4848,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "78",
-    "confidence": 0.0528,
-    "needs_review": true
+    "plate": "DDK4755",
+    "raw_text": "DDK4755",
+    "confidence": 0.4966,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4869,14 +4870,14 @@
    ],
    "ocr_detected": {
     "plate": "PKK8231",
-    "raw_text": "PKK 8231",
-    "confidence": 0.7367,
+    "raw_text": "PKK8231",
+    "confidence": 0.9451,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PKK8231",
-    "raw_text": "PKK 8231",
-    "confidence": 0.6981,
+    "raw_text": "PKK8231",
+    "confidence": 0.9087,
     "needs_review": false
    },
    "truth": null,
@@ -4896,14 +4897,14 @@
    ],
    "ocr_detected": {
     "plate": "OUN2908",
-    "raw_text": "0UN 2908",
-    "confidence": 0.9953,
+    "raw_text": "OUN2908",
+    "confidence": 0.89,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OUN2908",
-    "raw_text": "0UN 2908",
-    "confidence": 0.9599,
+    "raw_text": "OUN2908",
+    "confidence": 0.7704,
     "needs_review": false
    },
    "truth": null,
@@ -4920,16 +4921,16 @@
    "false_positives": 1,
    "ious": [],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "0Z4 383",
-    "confidence": 0.6419,
-    "needs_review": true
+    "plate": "OZH4333",
+    "raw_text": "0ZH4333",
+    "confidence": 0.4561,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "074 383",
-    "confidence": 0.7623,
-    "needs_review": true
+    "plate": "DZH4333",
+    "raw_text": "DZH4333",
+    "confidence": 0.6538,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -4951,13 +4952,13 @@
    "ocr_detected": {
     "plate": "JOK4450",
     "raw_text": "JOK4450",
-    "confidence": 0.977,
+    "confidence": 0.8263,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JOK4450",
     "raw_text": "JOK4450",
-    "confidence": 0.9389,
+    "confidence": 0.9323,
     "needs_review": false
    },
    "truth": null,
@@ -4975,14 +4976,14 @@
    "ious": [],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "44MM77",
+    "confidence": 0.1282,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "H4E5",
+    "confidence": 0.1499,
     "needs_review": true
    },
    "truth": null,
@@ -5002,14 +5003,14 @@
    ],
    "ocr_detected": {
     "plate": "PLF4689",
-    "raw_text": "PLF 4689",
-    "confidence": 0.9969,
+    "raw_text": "PLF4689",
+    "confidence": 0.7126,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PLF4689",
-    "raw_text": "PLF 4689",
-    "confidence": 0.9981,
+    "raw_text": "PLF4689",
+    "confidence": 0.988,
     "needs_review": false
    },
    "truth": null,
@@ -5028,10 +5029,10 @@
     0.858
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "Q81 80",
-    "confidence": 0.1814,
-    "needs_review": true
+    "plate": "PKX8015",
+    "raw_text": "PKX8015",
+    "confidence": 0.5458,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
@@ -5062,8 +5063,8 @@
    },
    "ocr_ground_truth": {
     "plate": "NZH7956",
-    "raw_text": "NZH 7956",
-    "confidence": 0.9921,
+    "raw_text": "NZH7956",
+    "confidence": 0.9582,
     "needs_review": false
    },
    "truth": null,
@@ -5082,15 +5083,15 @@
     0.882
    ],
    "ocr_detected": {
-    "plate": "OTV9065",
-    "raw_text": "07V 9065",
-    "confidence": 0.681,
-    "needs_review": true
+    "plate": "OZV9065",
+    "raw_text": "OZV9065",
+    "confidence": 0.8236,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OZV9065",
-    "raw_text": "0ZV 9065",
-    "confidence": 0.7933,
+    "raw_text": "OZV9065",
+    "confidence": 0.7213,
     "needs_review": false
    },
    "truth": null,
@@ -5109,16 +5110,16 @@
     0.801
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "1693",
-    "confidence": 0.1988,
-    "needs_review": true
+    "plate": "PLD4692",
+    "raw_text": "PLD4692",
+    "confidence": 0.9822,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "9",
-    "confidence": 0.7786,
-    "needs_review": true
+    "plate": "PLD4692",
+    "raw_text": "PLD4692",
+    "confidence": 0.9884,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5136,16 +5137,16 @@
     0.728
    ],
    "ocr_detected": {
-    "plate": "OKS4904",
-    "raw_text": "OK5 4904",
-    "confidence": 0.8415,
+    "plate": "OKS4804",
+    "raw_text": "OKS4804",
+    "confidence": 0.88,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "OKS4904",
-    "raw_text": "OKS 4904",
-    "confidence": 0.6293,
-    "needs_review": false
+    "plate": "OKS5494",
+    "raw_text": "0KSS494",
+    "confidence": 0.379,
+    "needs_review": true
    },
    "truth": null,
    "error": null
@@ -5164,14 +5165,14 @@
    ],
    "ocr_detected": {
     "plate": "PKS2624",
-    "raw_text": "PKS 2624",
-    "confidence": 0.9998,
+    "raw_text": "PKS2624",
+    "confidence": 0.9864,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PKS2624",
-    "raw_text": "PKS 2624",
-    "confidence": 0.9979,
+    "raw_text": "PKS2624",
+    "confidence": 0.9982,
     "needs_review": false
    },
    "truth": null,
@@ -5190,15 +5191,15 @@
     0.627
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "9L 23581",
-    "confidence": 0.6007,
-    "needs_review": true
+    "plate": "DLB2358",
+    "raw_text": "DLB2358",
+    "confidence": 0.6697,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "8",
-    "confidence": 0.6537,
+    "plate": "DXB3388",
+    "raw_text": "DXB338B",
+    "confidence": 0.203,
     "needs_review": true
    },
    "truth": null,
@@ -5216,10 +5217,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "R0",
-    "confidence": 0.0858,
-    "needs_review": true
+    "plate": "DZC1812",
+    "raw_text": "DZC1812",
+    "confidence": 0.8489,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5244,9 +5245,9 @@
    },
    "ocr_ground_truth": {
     "plate": "OKM7718",
-    "raw_text": "OKM 7718",
-    "confidence": 0.8849,
-    "needs_review": true
+    "raw_text": "OKM7718",
+    "confidence": 0.8711,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5265,14 +5266,14 @@
    ],
    "ocr_detected": {
     "plate": "OUY6463",
-    "raw_text": "0UY 6463",
-    "confidence": 0.8872,
+    "raw_text": "OUY6463",
+    "confidence": 0.6072,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OUY6463",
-    "raw_text": "OUY 6463",
-    "confidence": 0.8596,
+    "raw_text": "OUY6463",
+    "confidence": 0.6565,
     "needs_review": false
    },
    "truth": null,
@@ -5292,15 +5293,15 @@
    ],
    "ocr_detected": {
     "plate": "JOA4380",
-    "raw_text": "JOA 4380",
-    "confidence": 0.9863,
+    "raw_text": "JOA4380",
+    "confidence": 0.9603,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JOA4380",
-    "raw_text": "JOA 4380",
-    "confidence": 0.9999,
-    "needs_review": true
+    "raw_text": "JOA4380",
+    "confidence": 0.9709,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5318,15 +5319,15 @@
     0.868
    ],
    "ocr_detected": {
-    "plate": "YZL8296",
-    "raw_text": "YZL 8296",
-    "confidence": 0.6556,
+    "plate": "DZL8296",
+    "raw_text": "DZL8296",
+    "confidence": 0.6476,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OZL8296",
-    "raw_text": "OZL 8296",
-    "confidence": 0.9529,
+    "raw_text": "OZL8296",
+    "confidence": 0.6876,
     "needs_review": false
    },
    "truth": null,
@@ -5345,15 +5346,15 @@
     0.971
    ],
    "ocr_detected": {
-    "plate": "OLA4358",
-    "raw_text": "OLA 4358",
-    "confidence": 0.8985,
+    "plate": "QLA4358",
+    "raw_text": "QLA4358",
+    "confidence": 0.768,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "OLA4358",
-    "raw_text": "OLA 4358",
-    "confidence": 0.8346,
+    "plate": "QLA4358",
+    "raw_text": "QLA4358",
+    "confidence": 0.7555,
     "needs_review": false
    },
    "truth": null,
@@ -5373,14 +5374,14 @@
    ],
    "ocr_detected": {
     "plate": "JOB8141",
-    "raw_text": "JOB 8141",
-    "confidence": 0.8566,
+    "raw_text": "JOB8141",
+    "confidence": 0.8219,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JOB8141",
-    "raw_text": "J0B 8141",
-    "confidence": 0.9852,
+    "raw_text": "JOB8141",
+    "confidence": 0.9575,
     "needs_review": false
    },
    "truth": null,
@@ -5400,15 +5401,15 @@
    ],
    "ocr_detected": {
     "plate": "OKU7425",
-    "raw_text": "OKU 7425",
-    "confidence": 0.9449,
-    "needs_review": true
+    "raw_text": "OKU7425",
+    "confidence": 0.9856,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OKU7425",
-    "raw_text": "OKU 7425",
-    "confidence": 0.996,
-    "needs_review": true
+    "raw_text": "OKU7425",
+    "confidence": 0.981,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5428,16 +5429,16 @@
     0.824
    ],
    "ocr_detected": {
-    "plate": "PKZ6881",
-    "raw_text": "PKZ 6881",
-    "confidence": 0.5301,
-    "needs_review": true
+    "plate": "PKI6B81",
+    "raw_text": "PKI6B81",
+    "confidence": 0.9053,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "MZO0244",
-    "raw_text": "MZO 0244",
-    "confidence": 0.7554,
-    "needs_review": true
+    "plate": "NZD0244",
+    "raw_text": "NZD0244",
+    "confidence": 0.9803,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5455,16 +5456,16 @@
     0.823
    ],
    "ocr_detected": {
-    "plate": "OKR1200",
-    "raw_text": "OKR I200",
-    "confidence": 0.4117,
-    "needs_review": true
+    "plate": "OKR7300",
+    "raw_text": "OKR7300",
+    "confidence": 0.8004,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "ORR7300",
-    "raw_text": "ORR 7300",
-    "confidence": 0.3838,
-    "needs_review": true
+    "plate": "OKR7300",
+    "raw_text": "OKR7300",
+    "confidence": 0.9781,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5483,8 +5484,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "JN 9830",
-    "confidence": 0.4649,
+    "raw_text": "JRN988",
+    "confidence": 0.7405,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -5509,15 +5510,15 @@
     0.835
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "TS 6063",
-    "confidence": 0.869,
-    "needs_review": true
+    "plate": "JSQ6063",
+    "raw_text": "JSQ6063",
+    "confidence": 0.9996,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "JST6063",
-    "raw_text": "JST 6063",
-    "confidence": 0.7128,
+    "plate": "JSQ6063",
+    "raw_text": "JSQ6063",
+    "confidence": 0.9997,
     "needs_review": false
    },
    "truth": null,
@@ -5536,16 +5537,16 @@
     0.873
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "024 1633",
-    "confidence": 0.9318,
-    "needs_review": true
+    "plate": "OZJ1633",
+    "raw_text": "OZJ1633",
+    "confidence": 0.979,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "02 823",
-    "confidence": 0.547,
-    "needs_review": true
+    "plate": "DZJ1633",
+    "raw_text": "DZJ1633",
+    "confidence": 0.6895,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5590,9 +5591,9 @@
     0.817
    ],
    "ocr_detected": {
-    "plate": "PLS3675",
-    "raw_text": "PLS 3675",
-    "confidence": 0.7464,
+    "plate": "PLS3G79",
+    "raw_text": "PLS3G79",
+    "confidence": 0.6644,
     "needs_review": false
    },
    "ocr_ground_truth": {
@@ -5644,16 +5645,16 @@
     0.931
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "OK 694",
-    "confidence": 0.8595,
-    "needs_review": true
+    "plate": "OKN6941",
+    "raw_text": "OKN6941",
+    "confidence": 0.9687,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "OKN 694",
-    "confidence": 0.9498,
-    "needs_review": true
+    "plate": "OKN6941",
+    "raw_text": "OKN6941",
+    "confidence": 0.9787,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5671,15 +5672,15 @@
     0.95
    ],
    "ocr_detected": {
-    "plate": "FRI1S51",
-    "raw_text": "FR11 S518",
-    "confidence": 0.1693,
-    "needs_review": true
+    "plate": "HKI5518",
+    "raw_text": "HKI5518",
+    "confidence": 0.988,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "HKS5488",
-    "raw_text": "HK 55488",
-    "confidence": 0.6601,
+    "plate": "HKI5518",
+    "raw_text": "HKI5518",
+    "confidence": 0.9962,
     "needs_review": false
    },
    "truth": null,
@@ -5699,14 +5700,14 @@
    ],
    "ocr_detected": {
     "plate": "JRH2380",
-    "raw_text": "JRH 2380",
-    "confidence": 0.7078,
+    "raw_text": "JRH2380",
+    "confidence": 0.9491,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JRH2380",
-    "raw_text": "JRH 2380",
-    "confidence": 0.7403,
+    "raw_text": "JRH2380",
+    "confidence": 0.995,
     "needs_review": false
    },
    "truth": null,
@@ -5727,14 +5728,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "9E23F62",
+    "confidence": 0.1321,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "525M",
+    "confidence": 0.0899,
     "needs_review": true
    },
    "truth": null,
@@ -5755,8 +5756,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "321",
-    "confidence": 0.1746,
+    "raw_text": "79E33722",
+    "confidence": 0.1747,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -5783,15 +5784,15 @@
    ],
    "ocr_detected": {
     "plate": "PLX1C92",
-    "raw_text": "PLX 1C92",
-    "confidence": 0.9245,
-    "needs_review": true
+    "raw_text": "PLX1C92",
+    "confidence": 0.9994,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "0S 9097",
-    "confidence": 0.8526,
-    "needs_review": true
+    "plate": "OUS9097",
+    "raw_text": "OUS9097",
+    "confidence": 0.9674,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -5811,14 +5812,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "79E3362",
+    "confidence": 0.2102,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "T4",
-    "confidence": 0.0351,
+    "raw_text": "EA33",
+    "confidence": 0.1243,
     "needs_review": true
    },
    "truth": null,
@@ -5838,9 +5839,9 @@
     0.869
    ],
    "ocr_detected": {
-    "plate": "QUS9097",
-    "raw_text": "QUS 9097",
-    "confidence": 0.8282,
+    "plate": "OUS9097",
+    "raw_text": "OUS9097",
+    "confidence": 0.9262,
     "needs_review": false
    },
    "ocr_ground_truth": {
@@ -5867,8 +5868,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "94535E",
+    "confidence": 0.1069,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -5893,8 +5894,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "RUD771",
+    "confidence": 0.184,
     "needs_review": true
    },
    "truth": null,
@@ -5939,14 +5940,14 @@
    ],
    "ocr_detected": {
     "plate": "OLG6092",
-    "raw_text": "0LG 6092",
-    "confidence": 0.7647,
+    "raw_text": "0LG6092",
+    "confidence": 0.746,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OLG6092",
-    "raw_text": "0L6 6092",
-    "confidence": 0.8793,
+    "raw_text": "OLG6092",
+    "confidence": 0.6885,
     "needs_review": false
    },
    "truth": null,
@@ -5966,14 +5967,14 @@
    ],
    "ocr_detected": {
     "plate": "PJF9326",
-    "raw_text": "PJF 9326",
-    "confidence": 0.9983,
+    "raw_text": "PJF9326",
+    "confidence": 0.9932,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PJF9326",
-    "raw_text": "PJF 9326",
-    "confidence": 0.9951,
+    "raw_text": "PJF9326",
+    "confidence": 0.9989,
     "needs_review": false
    },
    "truth": null,
@@ -6019,8 +6020,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "2C888",
+    "confidence": 0.1123,
     "needs_review": true
    },
    "truth": null,
@@ -6039,16 +6040,16 @@
     0.934
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "P 2124",
-    "confidence": 0.9912,
-    "needs_review": true
+    "plate": "PJQ2124",
+    "raw_text": "PJQ2124",
+    "confidence": 0.8358,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "2124",
-    "confidence": 0.9855,
-    "needs_review": true
+    "plate": "PJQ2124",
+    "raw_text": "PJQ2124",
+    "confidence": 0.993,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6067,14 +6068,14 @@
    ],
    "ocr_detected": {
     "plate": "JRD9218",
-    "raw_text": "JRD 9218",
-    "confidence": 0.8401,
+    "raw_text": "JRD921B",
+    "confidence": 0.6844,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "JRD9218",
-    "raw_text": "JRD 9218",
-    "confidence": 0.9758,
+    "raw_text": "JRD9218",
+    "confidence": 0.9759,
     "needs_review": false
    },
    "truth": null,
@@ -6092,9 +6093,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "JQ 654",
-    "confidence": 0.504,
+    "plate": "JOL1584",
+    "raw_text": "JOL1584",
+    "confidence": 0.3155,
     "needs_review": true
    },
    "truth": null,
@@ -6113,9 +6114,9 @@
     0.76
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "WSS",
-    "confidence": 0.0601,
+    "plate": "JMA5113",
+    "raw_text": "JM45113",
+    "confidence": 0.1582,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -6138,16 +6139,16 @@
    "false_positives": 1,
    "ious": [],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "70",
-    "confidence": 0.0843,
-    "needs_review": true
+    "plate": "OUM0920",
+    "raw_text": "OUM0920",
+    "confidence": 0.5462,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "OIM0920",
+    "raw_text": "01M0920",
+    "confidence": 0.4655,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6165,16 +6166,16 @@
     1.0
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "OUJ T15",
-    "confidence": 0.6416,
-    "needs_review": true
+    "plate": "OUJ7115",
+    "raw_text": "OUJ7115",
+    "confidence": 0.8406,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "OUJ T15",
-    "confidence": 0.6416,
-    "needs_review": true
+    "plate": "OUJ7115",
+    "raw_text": "OUJ7115",
+    "confidence": 0.8406,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6195,7 +6196,7 @@
     "plate": "PJC6898",
     "raw_text": "PJC G898",
     "confidence": 0.4982,
-    "needs_review": true
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PJQ6898",
@@ -6223,10 +6224,10 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "PLG 681",
-    "confidence": 0.8111,
-    "needs_review": true
+    "plate": "PLG5814",
+    "raw_text": "PLG5814",
+    "confidence": 0.9519,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6244,15 +6245,15 @@
     0.794
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "I 58",
-    "confidence": 0.369,
-    "needs_review": true
+    "plate": "PLG5814",
+    "raw_text": "PLG5814",
+    "confidence": 0.9514,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "6",
-    "confidence": 0.5593,
+    "raw_text": "PLG5B1",
+    "confidence": 0.689,
     "needs_review": true
    },
    "truth": null,
@@ -6277,9 +6278,9 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "DOF5250",
-    "raw_text": "TDO F 5250",
-    "confidence": 0.6493,
+    "plate": "DOP9250",
+    "raw_text": "DOP9250",
+    "confidence": 0.834,
     "needs_review": false
    },
    "truth": null,
@@ -6298,15 +6299,15 @@
     0.766
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "028",
-    "confidence": 0.2218,
-    "needs_review": true
+    "plate": "JOE6426",
+    "raw_text": "JOE6426",
+    "confidence": 0.6221,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "JOE6426",
-    "raw_text": "JOE 6426",
-    "confidence": 0.9974,
+    "plate": "JDE6426",
+    "raw_text": "JDE6426",
+    "confidence": 0.7102,
     "needs_review": false
    },
    "truth": null,
@@ -6325,8 +6326,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "98477 ZNYQ 4052",
-    "confidence": 0.3019,
+    "raw_text": "NU4052",
+    "confidence": 0.3523,
     "needs_review": true
    },
    "truth": null,
@@ -6346,15 +6347,15 @@
    ],
    "ocr_detected": {
     "plate": "OKO8712",
-    "raw_text": "OKO 8712",
-    "confidence": 0.7326,
+    "raw_text": "OKO8712",
+    "confidence": 0.8321,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "DKO8712",
-    "raw_text": "DKO 8712",
-    "confidence": 0.745,
-    "needs_review": true
+    "plate": "OKQ8712",
+    "raw_text": "OKQ8712",
+    "confidence": 0.5843,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6372,15 +6373,15 @@
     0.901
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "P4IJ 3155",
-    "confidence": 0.2472,
-    "needs_review": true
+    "plate": "PJU3165",
+    "raw_text": "PJU3165",
+    "confidence": 0.9814,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "PJI3155",
-    "raw_text": "PJI 3155",
-    "confidence": 0.7844,
+    "plate": "PJU3165",
+    "raw_text": "PJU3165",
+    "confidence": 0.9549,
     "needs_review": false
    },
    "truth": null,
@@ -6399,16 +6400,16 @@
     0.776
    ],
    "ocr_detected": {
-    "plate": "OUQ4025",
-    "raw_text": "0UQ 4025",
-    "confidence": 0.6773,
+    "plate": "OUQ4026",
+    "raw_text": "OUQ4026",
+    "confidence": 0.8691,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "G0UA 4026",
-    "confidence": 0.572,
-    "needs_review": true
+    "plate": "OUQ4026",
+    "raw_text": "OUQ4026",
+    "confidence": 0.8595,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6426,16 +6427,16 @@
     0.864
    ],
    "ocr_detected": {
-    "plate": "OKR2582",
-    "raw_text": "OKR 2582",
-    "confidence": 0.8548,
-    "needs_review": true
+    "plate": "OKP2982",
+    "raw_text": "OKP2982",
+    "confidence": 0.9697,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OKP2982",
-    "raw_text": "OKP 2982",
-    "confidence": 0.7388,
-    "needs_review": true
+    "raw_text": "OKP2982",
+    "confidence": 0.9533,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6455,14 +6456,14 @@
    ],
    "ocr_detected": {
     "plate": "OZV4086",
-    "raw_text": "OZV 4086",
-    "confidence": 0.8826,
-    "needs_review": true
+    "raw_text": "OZV4086",
+    "confidence": 0.8308,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OZV4086",
-    "raw_text": "0ZV 4086",
-    "confidence": 0.9646,
+    "raw_text": "OZV4086",
+    "confidence": 0.8376,
     "needs_review": false
    },
    "truth": null,
@@ -6482,14 +6483,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "1",
-    "confidence": 0.2207,
+    "raw_text": "29NA4653",
+    "confidence": 0.2879,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "1S",
-    "confidence": 0.1274,
+    "raw_text": "39NA4653",
+    "confidence": 0.2839,
     "needs_review": true
    },
    "truth": null,
@@ -6508,8 +6509,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "1455",
+    "confidence": 0.1413,
     "needs_review": true
    },
    "truth": null,
@@ -6528,8 +6529,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "14M5",
+    "confidence": 0.143,
     "needs_review": true
    },
    "truth": null,
@@ -6548,15 +6549,15 @@
     0.757
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "9",
-    "confidence": 1.0,
+    "plate": "AWE7E97",
+    "raw_text": "4WE7E97",
+    "confidence": 0.1193,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "7E5",
-    "confidence": 0.5165,
+    "plate": "JQE7697",
+    "raw_text": "JQE7697",
+    "confidence": 0.1066,
     "needs_review": true
    },
    "truth": null,
@@ -6576,14 +6577,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "W41",
+    "confidence": 0.1376,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "W11",
+    "confidence": 0.1205,
     "needs_review": true
    },
    "truth": null,
@@ -6602,15 +6603,15 @@
     0.839
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "8550",
-    "confidence": 0.9881,
-    "needs_review": true
+    "plate": "ZTA8450",
+    "raw_text": "27A8450",
+    "confidence": 0.5045,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "8550",
-    "confidence": 0.9117,
+    "plate": "OTA8550",
+    "raw_text": "07A8550",
+    "confidence": 0.1051,
     "needs_review": true
    },
    "truth": null,
@@ -6630,14 +6631,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "F4",
+    "confidence": 0.1153,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "544",
+    "confidence": 0.1811,
     "needs_review": true
    },
    "truth": null,
@@ -6657,14 +6658,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "5",
+    "confidence": 0.5607,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "5",
+    "confidence": 0.4221,
     "needs_review": true
    },
    "truth": null,
@@ -6683,8 +6684,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "F7",
+    "confidence": 0.1537,
     "needs_review": true
    },
    "truth": null,
@@ -6703,8 +6704,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "7733",
+    "confidence": 0.2071,
     "needs_review": true
    },
    "truth": null,
@@ -6723,8 +6724,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "7723333",
+    "confidence": 0.074,
     "needs_review": true
    },
    "truth": null,
@@ -6837,16 +6838,16 @@
     0.766
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "69",
-    "confidence": 0.7276,
+    "plate": "OZT4687",
+    "raw_text": "OZT4687",
+    "confidence": 0.2395,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "697",
-    "confidence": 0.9058,
-    "needs_review": true
+    "plate": "QTT4687",
+    "raw_text": "Q7T4687",
+    "confidence": 0.5492,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6884,8 +6885,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "N97",
+    "confidence": 0.3156,
     "needs_review": true
    },
    "truth": null,
@@ -6904,15 +6905,15 @@
     0.737
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "NZX8481",
+    "raw_text": "NZX8481",
+    "confidence": 0.655,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "MZI8402",
-    "raw_text": "MZ1 8402",
-    "confidence": 0.3696,
+    "plate": "NZW8481",
+    "raw_text": "NZW848J",
+    "confidence": 0.4315,
     "needs_review": true
    },
    "truth": null,
@@ -6951,16 +6952,16 @@
     0.784
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "NI 9506",
-    "confidence": 0.5398,
-    "needs_review": true
+    "plate": "WTM9506",
+    "raw_text": "WTM9506",
+    "confidence": 0.6942,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "NIX9505",
-    "raw_text": "NIX 9505",
-    "confidence": 0.4231,
-    "needs_review": true
+    "plate": "WTM9506",
+    "raw_text": "WTM9506",
+    "confidence": 0.5833,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -6978,15 +6979,15 @@
     0.784
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "NX 9506",
-    "confidence": 0.6329,
-    "needs_review": true
+    "plate": "NYM9586",
+    "raw_text": "NYM9586",
+    "confidence": 0.4529,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "STT9506",
-    "raw_text": "S77 9506",
-    "confidence": 0.6049,
+    "plate": "NTM9506",
+    "raw_text": "NTM9506",
+    "confidence": 0.8018,
     "needs_review": false
    },
    "truth": null,
@@ -7005,16 +7006,16 @@
     0.839
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "9493",
-    "confidence": 0.0766,
-    "needs_review": true
+    "plate": "BKB9497",
+    "raw_text": "BKB9497",
+    "confidence": 0.6016,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "8483",
-    "confidence": 0.2368,
-    "needs_review": true
+    "plate": "BKB9497",
+    "raw_text": "BKB9497",
+    "confidence": 0.517,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7032,8 +7033,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "IBXI",
-    "confidence": 0.0447,
+    "raw_text": "7213",
+    "confidence": 0.2675,
     "needs_review": true
    },
    "truth": null,
@@ -7052,16 +7053,16 @@
     0.82
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "JE 508",
-    "confidence": 0.975,
-    "needs_review": true
+    "plate": "PJE1508",
+    "raw_text": "PJE1508",
+    "confidence": 0.7592,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "JE 508",
-    "confidence": 0.89,
-    "needs_review": true
+    "plate": "PJE1508",
+    "raw_text": "PJE150B",
+    "confidence": 0.7918,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7079,8 +7080,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "T5",
+    "confidence": 0.0956,
     "needs_review": true
    },
    "truth": null,
@@ -7100,8 +7101,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "GF6699",
+    "confidence": 0.0719,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -7127,14 +7128,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "H59",
+    "confidence": 0.146,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "A9",
+    "confidence": 0.0921,
     "needs_review": true
    },
    "truth": null,
@@ -7173,8 +7174,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "C",
+    "confidence": 0.1712,
     "needs_review": true
    },
    "truth": null,
@@ -7193,16 +7194,16 @@
     0.939
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "M",
-    "confidence": 0.8567,
-    "needs_review": true
+    "plate": "AVI8707",
+    "raw_text": "AVI8707",
+    "confidence": 0.9877,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "I14807",
-    "confidence": 0.3268,
-    "needs_review": true
+    "plate": "AVI8707",
+    "raw_text": "AVI8707",
+    "confidence": 0.9692,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7220,16 +7221,16 @@
     0.953
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "0103J99",
-    "confidence": 0.288,
-    "needs_review": true
+    "plate": "OUO3J99",
+    "raw_text": "OUO3J99",
+    "confidence": 0.9492,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "QUO5J99",
-    "raw_text": "QU05J99",
-    "confidence": 0.2996,
-    "needs_review": true
+    "plate": "OUO3J99",
+    "raw_text": "OUO3J99",
+    "confidence": 0.9774,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7247,15 +7248,15 @@
     0.916
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "DEE2423",
+    "raw_text": "DEE2423",
+    "confidence": 0.0976,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "JE5223",
+    "confidence": 0.1072,
     "needs_review": true
    },
    "truth": null,
@@ -7274,16 +7275,16 @@
     0.773
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "L176",
-    "confidence": 0.5139,
-    "needs_review": true
+    "plate": "ANP4176",
+    "raw_text": "ANP4176",
+    "confidence": 0.8437,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "AQZA 76",
-    "confidence": 0.4353,
-    "needs_review": true
+    "plate": "ANP4176",
+    "raw_text": "ANP4176",
+    "confidence": 0.96,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7300,9 +7301,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "AOT3666",
+    "raw_text": "AOT3666",
+    "confidence": 0.3122,
     "needs_review": true
    },
    "truth": null,
@@ -7321,16 +7322,16 @@
     0.985
    ],
    "ocr_detected": {
-    "plate": "EDC2709",
-    "raw_text": "EDC 2709",
-    "confidence": 0.3856,
-    "needs_review": true
+    "plate": "BDC2709",
+    "raw_text": "BDC2709",
+    "confidence": 0.9858,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "DDC2709",
-    "raw_text": "DDC2709",
-    "confidence": 0.4265,
-    "needs_review": true
+    "plate": "BDC2709",
+    "raw_text": "BDC2709",
+    "confidence": 0.9778,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7349,8 +7350,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "S4",
-    "confidence": 0.2046,
+    "raw_text": "AAA543",
+    "confidence": 0.2397,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -7377,14 +7378,14 @@
    "ocr_detected": {
     "plate": "ASU9178",
     "raw_text": "ASU9178",
-    "confidence": 0.4643,
-    "needs_review": true
+    "confidence": 0.9954,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "ASU9178",
     "raw_text": "ASU9178",
-    "confidence": 0.6504,
-    "needs_review": true
+    "confidence": 0.9955,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7403,14 +7404,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "BEB474",
+    "confidence": 0.1519,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "BHB474",
+    "confidence": 0.1577,
     "needs_review": true
    },
    "truth": null,
@@ -7429,16 +7430,16 @@
     0.882
    ],
    "ocr_detected": {
-    "plate": "AZK2A00",
-    "raw_text": "QAZK2ADU",
-    "confidence": 0.0616,
-    "needs_review": true
+    "plate": "AZK2A06",
+    "raw_text": "AZK2A06",
+    "confidence": 0.9993,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "JZGAOUL",
-    "confidence": 0.102,
-    "needs_review": true
+    "plate": "AZK2A06",
+    "raw_text": "AZK2A06",
+    "confidence": 0.9987,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7456,15 +7457,15 @@
     0.878
    ],
    "ocr_detected": {
-    "plate": "ALK5155",
-    "raw_text": "ALKS155",
-    "confidence": 0.3701,
-    "needs_review": true
+    "plate": "ALK5I55",
+    "raw_text": "ALK5I55",
+    "confidence": 0.6973,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "ALK5I55",
-    "raw_text": "ALKSI55",
-    "confidence": 0.7048,
+    "raw_text": "ALK5I55",
+    "confidence": 0.9538,
     "needs_review": false
    },
    "truth": null,
@@ -7484,14 +7485,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "AH391RH",
+    "confidence": 0.1818,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "AA3911H",
+    "confidence": 0.1837,
     "needs_review": true
    },
    "truth": null,
@@ -7510,16 +7511,16 @@
     0.907
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "6J6227",
-    "confidence": 0.5207,
-    "needs_review": true
+    "plate": "AJD6337",
+    "raw_text": "AJD6337",
+    "confidence": 0.971,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "U6",
-    "confidence": 0.2275,
-    "needs_review": true
+    "plate": "AJD6337",
+    "raw_text": "AJD6337",
+    "confidence": 0.9239,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7538,14 +7539,14 @@
    ],
    "ocr_detected": {
     "plate": "KBA7495",
-    "raw_text": "KBA 7495",
-    "confidence": 0.7279,
+    "raw_text": "KBA7495",
+    "confidence": 0.851,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "KBA7495",
-    "raw_text": "KBA 7495",
-    "confidence": 0.9918,
+    "raw_text": "KBA7495",
+    "confidence": 0.9914,
     "needs_review": false
    },
    "truth": null,
@@ -7618,8 +7619,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "ABC 02343",
-    "confidence": 0.595,
+    "raw_text": "AB0234",
+    "confidence": 0.9252,
     "needs_review": true
    },
    "truth": null,
@@ -7639,14 +7640,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "2449 LPY",
-    "confidence": 0.9912,
+    "raw_text": "2449LPY",
+    "confidence": 0.9998,
     "needs_review": true
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "82449 P",
-    "confidence": 0.7412,
+    "raw_text": "2449LPY",
+    "confidence": 0.9998,
     "needs_review": true
    },
    "truth": null,
@@ -7665,8 +7666,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "412 3BCD",
-    "confidence": 0.9181,
+    "raw_text": "A123BCD",
+    "confidence": 0.9998,
     "needs_review": true
    },
    "truth": null,
@@ -7686,14 +7687,14 @@
    ],
    "ocr_detected": {
     "plate": "DPY9120",
-    "raw_text": "DPY 9120",
-    "confidence": 0.9137,
+    "raw_text": "DPY9120",
+    "confidence": 0.8649,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "DPY9120",
-    "raw_text": "DPY 9120",
-    "confidence": 0.797,
+    "raw_text": "DPY9120",
+    "confidence": 0.9991,
     "needs_review": false
    },
    "truth": null,
@@ -7712,8 +7713,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "1",
+    "confidence": 0.1699,
     "needs_review": true
    },
    "truth": null,
@@ -7731,10 +7732,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": "LIG5392",
-    "raw_text": "L1G5392",
-    "confidence": 0.1526,
-    "needs_review": true
+    "plate": "ALG5595",
+    "raw_text": "ALG5595",
+    "confidence": 0.9972,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -7758,9 +7759,9 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "C",
-    "confidence": 0.0432,
+    "plate": "ZAW5984",
+    "raw_text": "24W5984",
+    "confidence": 0.2191,
     "needs_review": true
    },
    "truth": null,
@@ -7780,8 +7781,8 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "24W4",
+    "confidence": 0.1332,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -7806,8 +7807,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "03A5944",
+    "confidence": 0.3317,
     "needs_review": true
    },
    "truth": null,
@@ -7826,8 +7827,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "224L444",
+    "confidence": 0.0997,
     "needs_review": true
    },
    "truth": null,
@@ -7866,8 +7867,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "E54",
+    "confidence": 0.1545,
     "needs_review": true
    },
    "truth": null,
@@ -7886,8 +7887,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "07",
-    "confidence": 0.1083,
+    "raw_text": "FG559",
+    "confidence": 0.1593,
     "needs_review": true
    },
    "truth": null,
@@ -7931,8 +7932,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "44",
-    "confidence": 0.0457,
+    "raw_text": "SM1355",
+    "confidence": 0.1294,
     "needs_review": true
    },
    "truth": null,
@@ -7991,8 +7992,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "3425",
+    "confidence": 0.2346,
     "needs_review": true
    },
    "truth": null,
@@ -8011,8 +8012,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "3341",
+    "confidence": 0.2014,
     "needs_review": true
    },
    "truth": null,
@@ -8031,8 +8032,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "W9F55",
+    "confidence": 0.0895,
     "needs_review": true
    },
    "truth": null,
@@ -8051,8 +8052,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "J53",
+    "confidence": 0.1265,
     "needs_review": true
    },
    "truth": null,
@@ -8071,8 +8072,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "331",
+    "confidence": 0.1527,
     "needs_review": true
    },
    "truth": null,
@@ -8111,16 +8112,16 @@
     0.899
    ],
    "ocr_detected": {
-    "plate": "PGK3991",
-    "raw_text": "PGK 3991",
-    "confidence": 0.516,
-    "needs_review": true
+    "plate": "PWW3983",
+    "raw_text": "PWW3983",
+    "confidence": 0.5108,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "25 3993",
-    "confidence": 0.6962,
-    "needs_review": true
+    "plate": "PKW3983",
+    "raw_text": "PKW3983",
+    "confidence": 0.7972,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -8138,9 +8139,9 @@
     0.881
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "1983",
-    "confidence": 0.3813,
+    "plate": "MWW3981",
+    "raw_text": "MWW39BJ",
+    "confidence": 0.2697,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -8166,14 +8167,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "22EW458",
+    "confidence": 0.1344,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "ZZW5560",
+    "raw_text": "22W5560",
+    "confidence": 0.1713,
     "needs_review": true
    },
    "truth": null,
@@ -8192,8 +8193,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "2E3M4",
+    "confidence": 0.1479,
     "needs_review": true
    },
    "truth": null,
@@ -8212,9 +8213,9 @@
     0.788
    ],
    "ocr_detected": {
-    "plate": "PJS3006",
-    "raw_text": "PJS 3006",
-    "confidence": 0.9551,
+    "plate": "PJS3886",
+    "raw_text": "PJS3886",
+    "confidence": 0.7819,
     "needs_review": false
    },
    "ocr_ground_truth": {
@@ -8239,9 +8240,9 @@
     0.892
    ],
    "ocr_detected": {
-    "plate": "PJS3886",
-    "raw_text": "PJS 3886J",
-    "confidence": 0.3271,
+    "plate": "EJS3885",
+    "raw_text": "EJS3885",
+    "confidence": 0.4436,
     "needs_review": true
    },
    "ocr_ground_truth": {
@@ -8293,8 +8294,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "554",
+    "confidence": 0.1155,
     "needs_review": true
    },
    "truth": null,
@@ -8313,8 +8314,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": "NZC8522",
-    "raw_text": "NZC 8522",
-    "confidence": 0.8849,
+    "raw_text": "NZC8522",
+    "confidence": 0.9766,
     "needs_review": false
    },
    "truth": null,
@@ -8333,8 +8334,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "WFE542",
+    "confidence": 0.3973,
     "needs_review": true
    },
    "truth": null,
@@ -8353,8 +8354,8 @@
    "ocr_detected": null,
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "raw_text": "WEC522",
+    "confidence": 0.4639,
     "needs_review": true
    },
    "truth": null,
@@ -8372,10 +8373,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "E",
-    "confidence": 0.893,
-    "needs_review": true
+    "plate": "PAV8399",
+    "raw_text": "PAV8399",
+    "confidence": 0.6967,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -8393,16 +8394,16 @@
     0.875
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "79",
-    "confidence": 0.2274,
-    "needs_review": true
+    "plate": "PLT3E29",
+    "raw_text": "PLT3E29",
+    "confidence": 0.5843,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "PLT3E29",
+    "raw_text": "PLT3E29",
+    "confidence": 0.7929,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -8420,15 +8421,15 @@
     0.81
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
-    "needs_review": true
+    "plate": "PLI3529",
+    "raw_text": "PL13529",
+    "confidence": 0.6513,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "9",
-    "confidence": 0.9941,
+    "plate": "PLI3529",
+    "raw_text": "PL13529",
+    "confidence": 0.3187,
     "needs_review": true
    },
    "truth": null,
@@ -8447,15 +8448,15 @@
     0.841
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "3529",
-    "confidence": 0.8704,
-    "needs_review": true
+    "plate": "PLT3529",
+    "raw_text": "PLT3529",
+    "confidence": 0.5212,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "0 9",
-    "confidence": 0.923,
+    "plate": "PLI3579",
+    "raw_text": "PL13579",
+    "confidence": 0.2062,
     "needs_review": true
    },
    "truth": null,
@@ -8474,15 +8475,15 @@
     0.941
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "XE",
-    "confidence": 0.2528,
+    "plate": "TRK6803",
+    "raw_text": "TRK6803",
+    "confidence": 0.3847,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "PKL6408",
-    "raw_text": "PKL 6408",
-    "confidence": 0.2089,
+    "plate": "FRL6803",
+    "raw_text": "FRL6803",
+    "confidence": 0.4405,
     "needs_review": true
    },
    "truth": null,
@@ -8501,16 +8502,16 @@
     0.903
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "630",
-    "confidence": 0.8591,
-    "needs_review": true
+    "plate": "PKI6803",
+    "raw_text": "PKI6803",
+    "confidence": 0.7361,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "9 6809",
-    "confidence": 0.5181,
-    "needs_review": true
+    "plate": "PKL6803",
+    "raw_text": "PKL6803",
+    "confidence": 0.9102,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -8528,15 +8529,15 @@
     0.891
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "PWL6R03",
+    "raw_text": "PWL6R03",
+    "confidence": 0.3223,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "PWL6R00",
+    "raw_text": "PWLGR00",
+    "confidence": 0.2375,
     "needs_review": true
    },
    "truth": null,
@@ -8575,15 +8576,15 @@
     0.831
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "65",
-    "confidence": 0.2916,
+    "plate": "ZVT7595",
+    "raw_text": "ZVT7595",
+    "confidence": 0.2136,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "65",
-    "confidence": 0.306,
+    "plate": "TTT1655",
+    "raw_text": "7TT1655",
+    "confidence": 0.2376,
     "needs_review": true
    },
    "truth": null,
@@ -8608,9 +8609,9 @@
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "",
-    "confidence": 0.0,
+    "plate": "JOV5229",
+    "raw_text": "JOV5229",
+    "confidence": 0.4379,
     "needs_review": true
    },
    "truth": null,
@@ -8629,15 +8630,15 @@
     0.844
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "HG 3152",
-    "confidence": 0.7353,
-    "needs_review": true
+    "plate": "HGT3152",
+    "raw_text": "HGT3152",
+    "confidence": 0.718,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": null,
-    "raw_text": "HG SCN7AG 182",
-    "confidence": 0.3405,
+    "raw_text": "HGT312",
+    "confidence": 0.9197,
     "needs_review": true
    },
    "truth": null,
@@ -8657,14 +8658,14 @@
    ],
    "ocr_detected": {
     "plate": null,
-    "raw_text": "9904",
-    "confidence": 0.7237,
+    "raw_text": "JQL990",
+    "confidence": 0.7799,
     "needs_review": true
    },
    "ocr_ground_truth": {
-    "plate": "JCL9907",
-    "raw_text": "JCL 9907",
-    "confidence": 0.9282,
+    "plate": "JQL9907",
+    "raw_text": "JQL9907",
+    "confidence": 0.6941,
     "needs_review": false
    },
    "truth": null,
@@ -8685,7 +8686,7 @@
     "plate": "JSR0261",
     "raw_text": "JSR 0261",
     "confidence": 0.519,
-    "needs_review": true
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -8702,9 +8703,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "JR 382",
-    "confidence": 0.2866,
+    "plate": "JRJ3649",
+    "raw_text": "JRJ3649",
+    "confidence": 0.4086,
     "needs_review": true
    },
    "truth": null,
@@ -8723,16 +8724,16 @@
     0.781
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "035",
-    "confidence": 0.853,
-    "needs_review": true
+    "plate": "NZT0334",
+    "raw_text": "NZT0334",
+    "confidence": 0.9036,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "NZT 03341",
-    "confidence": 0.5427,
-    "needs_review": true
+    "plate": "NZT0334",
+    "raw_text": "NZT0334",
+    "confidence": 0.9819,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -8751,15 +8752,15 @@
    ],
    "ocr_detected": {
     "plate": "NTH0576",
-    "raw_text": "NTH 0576",
-    "confidence": 0.6946,
+    "raw_text": "NTH0576",
+    "confidence": 0.9987,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "NIH0576",
-    "raw_text": "NIH 0576",
-    "confidence": 0.9173,
-    "needs_review": true
+    "plate": "NTH0576",
+    "raw_text": "NTH0576",
+    "confidence": 0.993,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -8778,14 +8779,14 @@
    ],
    "ocr_detected": {
     "plate": "NTH0576",
-    "raw_text": "NTH 0576",
-    "confidence": 0.9835,
+    "raw_text": "NTH0576",
+    "confidence": 0.9962,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "NTH0576",
-    "raw_text": "NTH 0576",
-    "confidence": 0.9891,
+    "raw_text": "NTH0576",
+    "confidence": 0.9987,
     "needs_review": false
    },
    "truth": null,
@@ -8805,14 +8806,14 @@
    ],
    "ocr_detected": {
     "plate": "NYJ7749",
-    "raw_text": "NYJ 7749",
-    "confidence": 0.9979,
+    "raw_text": "NYJ7749",
+    "confidence": 0.9948,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "NYJ7749",
-    "raw_text": "NYJ 7749",
-    "confidence": 0.9887,
+    "raw_text": "NYJ7749",
+    "confidence": 0.9943,
     "needs_review": false
    },
    "truth": null,
@@ -8831,9 +8832,9 @@
     0.888
    ],
    "ocr_detected": {
-    "plate": "NIG7517",
-    "raw_text": "NIG 7517",
-    "confidence": 0.8398,
+    "plate": "NTG7577",
+    "raw_text": "NTG7577",
+    "confidence": 0.8871,
     "needs_review": false
    },
    "ocr_ground_truth": {
@@ -8857,10 +8858,10 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": "QUE4415",
-    "raw_text": "QUE 4415",
-    "confidence": 0.8849,
-    "needs_review": false
+    "plate": "AUI4415",
+    "raw_text": "AUI4415",
+    "confidence": 0.2434,
+    "needs_review": true
    },
    "truth": null,
    "error": null
@@ -8879,14 +8880,14 @@
    ],
    "ocr_detected": {
     "plate": "PLC7034",
-    "raw_text": "PLC 7034",
-    "confidence": 0.9995,
+    "raw_text": "PLC7034",
+    "confidence": 0.9717,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PLC7034",
-    "raw_text": "PLC 7034",
-    "confidence": 0.9998,
+    "raw_text": "PLC7034",
+    "confidence": 0.9817,
     "needs_review": false
    },
    "truth": null,
@@ -8906,8 +8907,8 @@
    ],
    "ocr_detected": {
     "plate": "PLC8498",
-    "raw_text": "PLC 8498",
-    "confidence": 0.9996,
+    "raw_text": "PLC8498",
+    "confidence": 0.8275,
     "needs_review": false
    },
    "ocr_ground_truth": {
@@ -8953,14 +8954,14 @@
    ],
    "ocr_detected": {
     "plate": "OKS2704",
-    "raw_text": "OKS 2704",
-    "confidence": 0.8737,
+    "raw_text": "OKS2704",
+    "confidence": 0.9888,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "WKS2704",
-    "raw_text": "WKS 2704",
-    "confidence": 0.7763,
+    "plate": "OKS2704",
+    "raw_text": "OKS2704",
+    "confidence": 0.9193,
     "needs_review": false
    },
    "truth": null,
@@ -8988,7 +8989,7 @@
     "plate": "PZF5462",
     "raw_text": "P2F 5462",
     "confidence": 0.5849,
-    "needs_review": true
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -9006,15 +9007,15 @@
     0.869
    ],
    "ocr_detected": {
-    "plate": "NTG5142",
-    "raw_text": "NTG 5142",
-    "confidence": 0.9233,
+    "plate": "NTG5742",
+    "raw_text": "NTG5742",
+    "confidence": 0.9988,
     "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "NIG5142",
-    "raw_text": "NIG 5142",
-    "confidence": 0.846,
+    "plate": "NTG5742",
+    "raw_text": "NTG5742",
+    "confidence": 0.9994,
     "needs_review": false
    },
    "truth": null,
@@ -9033,16 +9034,16 @@
     0.714
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "J089",
-    "confidence": 0.5457,
-    "needs_review": true
+    "plate": "JPX7889",
+    "raw_text": "JPX7889",
+    "confidence": 0.7873,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "J083",
-    "confidence": 0.1418,
-    "needs_review": true
+    "plate": "JPX7889",
+    "raw_text": "JPX7889",
+    "confidence": 0.9289,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -9060,16 +9061,16 @@
     0.952
    ],
    "ocr_detected": {
-    "plate": "PLI6475",
-    "raw_text": "PLI 6475",
-    "confidence": 0.689,
+    "plate": "PLD6475",
+    "raw_text": "PLD6475",
+    "confidence": 0.9967,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "PLD6475",
-    "raw_text": "PLD 6475",
-    "confidence": 0.9543,
-    "needs_review": true
+    "raw_text": "PLD6475",
+    "confidence": 0.9992,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -9087,16 +9088,16 @@
     0.954
    ],
    "ocr_detected": {
-    "plate": "NZH1869",
-    "raw_text": "NZH 1869",
-    "confidence": 0.9943,
-    "needs_review": true
+    "plate": "NZM1869",
+    "raw_text": "NZM1869",
+    "confidence": 0.9987,
+    "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "NZM1869",
-    "raw_text": "NZM 1869",
-    "confidence": 0.9968,
-    "needs_review": true
+    "raw_text": "NZM1869",
+    "confidence": 0.7331,
+    "needs_review": false
    },
    "truth": null,
    "error": null
@@ -9115,14 +9116,14 @@
    ],
    "ocr_detected": {
     "plate": "OLB8059",
-    "raw_text": "0LB 8059",
-    "confidence": 0.9059,
+    "raw_text": "OLB8059",
+    "confidence": 0.6077,
     "needs_review": false
    },
    "ocr_ground_truth": {
     "plate": "OLB8059",
-    "raw_text": "OLB 8059",
-    "confidence": 0.9415,
+    "raw_text": "OLB8059",
+    "confidence": 0.8368,
     "needs_review": false
    },
    "truth": null,
@@ -9141,15 +9142,15 @@
     0.844
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "O 5J06",
-    "confidence": 0.5071,
-    "needs_review": true
+    "plate": "OEV5J06",
+    "raw_text": "OEV5J06",
+    "confidence": 0.6739,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "JKR0045",
-    "raw_text": "JKR 0045",
-    "confidence": 0.6669,
+    "plate": "OKR0045",
+    "raw_text": "OKR0045",
+    "confidence": 0.7525,
     "needs_review": false
    },
    "truth": null,
@@ -9167,9 +9168,9 @@
    "ious": [],
    "ocr_detected": null,
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "7",
-    "confidence": 0.0296,
+    "plate": "TMW9D27",
+    "raw_text": "TMW9D27",
+    "confidence": 0.1472,
     "needs_review": true
    },
    "truth": null,
@@ -9188,15 +9189,15 @@
     0.596
    ],
    "ocr_detected": {
-    "plate": "BLU5057",
-    "raw_text": "BLU5057",
-    "confidence": 0.3201,
-    "needs_review": true
+    "plate": "BLU5D52",
+    "raw_text": "BLU5D52",
+    "confidence": 0.509,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": "BLU5052",
-    "raw_text": "BLU5052",
-    "confidence": 0.6548,
+    "plate": "BLU5D52",
+    "raw_text": "BLU5D52",
+    "confidence": 0.9067,
     "needs_review": false
    },
    "truth": null,
@@ -9215,16 +9216,16 @@
     0.865
    ],
    "ocr_detected": {
-    "plate": null,
-    "raw_text": "J7",
-    "confidence": 0.4289,
-    "needs_review": true
+    "plate": "BCS4C37",
+    "raw_text": "BCS4C37",
+    "confidence": 0.9991,
+    "needs_review": false
    },
    "ocr_ground_truth": {
-    "plate": null,
-    "raw_text": "LXEZ",
-    "confidence": 0.1335,
-    "needs_review": true
+    "plate": "BCS4C37",
+    "raw_text": "BCS4C37",
+    "confidence": 0.9982,
+    "needs_review": false
    },
    "truth": null,
    "error": null

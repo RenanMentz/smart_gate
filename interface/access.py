@@ -55,7 +55,8 @@ STATUS_TEXT = {
 }
 METHOD_TEXT = {"yolo": "YOLO11 (rede neural)", "classical": "OpenCV clássico (heurístico)", "none": "Nenhum", "manual": "Manual"}
 FORMAT_TEXT = {PlateFormat.OLD: "Antigo", PlateFormat.MERCOSUL: "Mercosul", PlateFormat.INVALID: "Inválido"}
-SOURCE_TEXT = {"enhanced": "Tons de cinza melhorado", "binary": "Binarizada"}
+SOURCE_TEXT = {"plate_model": "Recorte colorido (leitor de placas)", "enhanced": "Tons de cinza melhorado",
+               "binary": "Binarizada"}
 
 
 @dataclass

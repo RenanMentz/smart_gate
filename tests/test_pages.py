@@ -323,7 +323,7 @@ def test_settings_page_shows_model_status_without_loading_models(pipeline):
     texts = [e.value for e in (*at.success, *at.info, *at.error)]
     assert any(t.startswith("**GPU:**") for t in texts)
     assert any("Detector YOLO11" in t and "not found" in t for t in at.error.values)
-    assert any("EasyOCR" in t and "Not loaded yet" in t for t in texts)
+    assert any("Leitor de caracteres" in t and "not loaded yet" in t for t in texts)
     assert widget(at.button, "Carregar modelos agora")
     assert not pipeline.detector.loaded and not pipeline.ocr.loaded
 

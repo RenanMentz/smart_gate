@@ -91,7 +91,11 @@ class ProcessingConfig:
 class OCRConfig:
     """Parameters of the character recognition stage."""
 
-    languages: list[str] = field(default_factory=lambda: ["en"])  # latin alphabet + digits
+    engine: str = "fast_plate"           # "fast_plate" (plate-specific model, EasyOCR as fallback)
+                                          # or "easyocr" (generic text OCR only)
+    plate_model: str = "cct-xs-v2-global-model"  # fast-plate-ocr hub model (trained on plates of
+                                          # ~65 regions, Brazil included; MIT license)
+    languages: list[str] = field(default_factory=lambda: ["en"])  # EasyOCR: latin alphabet + digits
     use_gpu: bool = True                  # falls back to CPU automatically if CUDA is missing
     min_confidence: float = 0.45          # below this the read goes to MANUAL REVIEW. Lowered from 0.60:
                                           # EasyOCR (generic, not trained on plates) gives clear Mercosul

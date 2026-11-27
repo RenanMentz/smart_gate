@@ -13,7 +13,9 @@
 
 # Deep learning (detection + OCR share the same PyTorch backend)
 ultralytics==8.4.218
-easyocr==1.7.2
+easyocr==1.7.2                  # fallback OCR (generic text)
+fast-plate-ocr[onnx]==1.1.0     # default OCR, trained on license plates (MIT)
+onnxruntime==1.32.0
 
 # Image processing
 # Ultralytics depends on opencv-python and EasyOCR on opencv-python-headless.

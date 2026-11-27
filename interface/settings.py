@@ -115,14 +115,15 @@ def _render_status() -> None:
 
     easy = system_status.ocr_status(ocr)
     _status_line(False if easy.error else (True if easy.loaded else None),
-                 "EasyOCR", easy.detail + (f" Erro: {easy.error}" if easy.error else ""))
+                 "Leitor de caracteres (OCR)", easy.detail + (f" Erro: {easy.error}" if easy.error else ""))
 
     if not (detector.loaded and ocr.loaded):
         if st.button("Carregar modelos agora", icon=":material/memory:",
-                     help="Carrega o YOLO e o EasyOCR já, para a primeira leitura não demorar. "
+                     help="Carrega o YOLO e o leitor de caracteres já, para a primeira leitura não demorar. "
                           "Se um carregamento falhou, tenta de novo."):
             detector.load_error = None          # allow a new attempt after fixing the problem
             ocr.load_error = None
+            ocr.plate_model_error = None
             with st.spinner("Carregando modelos (pode levar alguns segundos)…"):
                 ok_yolo, ok_ocr = detector.yolo_available, ocr.available
             flash("Modelos carregados." if ok_yolo and ok_ocr else "Um dos modelos não carregou; veja o erro acima.",

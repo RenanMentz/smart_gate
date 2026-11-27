@@ -112,10 +112,14 @@ def yolo_status(detector: PlateDetector, expected_sha256: str | None = None,
 
 
 def ocr_status(ocr: PlateOCR) -> ModelStatus:
+    """Status of the first OCR engine (fast-plate-ocr by default, EasyOCR as fallback)."""
+    error = ocr.plate_model_error if ocr.uses_plate_model else ocr.load_error
     if ocr.loaded:
-        detail = f"Loaded on {'GPU' if ocr.gpu else 'CPU'}, languages: {', '.join(ocr.cfg.languages)}"
-    elif ocr.load_error:
-        detail = "Failed to load."
+        detail = (f"{ocr.engine_name} loaded on CPU (ONNX Runtime); EasyOCR is the fallback."
+                  if ocr.uses_plate_model else
+                  f"EasyOCR loaded on {'GPU' if ocr.gpu else 'CPU'}, languages: {', '.join(ocr.cfg.languages)}")
+    elif error:
+        detail = f"{ocr.engine_name} failed to load" + ("; EasyOCR will be used." if ocr.uses_plate_model else ".")
     else:
-        detail = "Not loaded yet (loads on the first reading)."
-    return ModelStatus("EasyOCR", ocr.loaded, ocr.load_error, detail)
+        detail = f"{ocr.engine_name}: not loaded yet (loads on the first reading)."
+    return ModelStatus("OCR", ocr.loaded, error, detail)

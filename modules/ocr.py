@@ -304,16 +304,74 @@ def choose_reading(readings: list[PlateReading], cfg: OCRConfig | None = None) -
 
 
 # --------------------------------------------------------------------------
-# EasyOCR wrapper
+# OCR engines
 # --------------------------------------------------------------------------
+PLATE_MODEL_SOURCE = "plate_model"
+
+
+def plate_model_reading(text: str, char_probs, region: str | None = None,
+                        cfg: OCRConfig | None = None) -> PlateReading:
+    """Turn a fast-plate-ocr prediction into a :class:`PlateReading`.
+
+    The plate confidence is the **lowest** probability among the characters:
+    one doubtful character is enough to doubt the plate. The model is often
+    over-confident (it can be 100 % sure of an ``I`` where a digit must be), so
+    the text still goes through the same position-based correction and
+    validation as EasyOCR's output.
+    """
+    text = text.replace("_", "")
+    probs = [float(p) for p in (char_probs if char_probs is not None else [])][: max(1, len(text))]
+    confidence = min(probs) if probs and text else 0.0
+    box = [[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0]]       # the model reads the whole crop
+    reading = interpret_fragments([(box, text, confidence)] if text else [], PLATE_MODEL_SOURCE, cfg)
+    if region:
+        reading.notes.append(f"Plate region predicted by the model: {region}.")
+    return reading
+
+
 class PlateOCR:
-    """Reads plate crops with EasyOCR (model loaded lazily on first use)."""
+    """Reads plate crops.
+
+    Engines (models loaded lazily on first use):
+
+    * **fast-plate-ocr** (default, ``cfg.engine == "fast_plate"``) - a small
+      CCT (Compact Convolutional Transformer) trained only on license plates
+      of ~65 regions, Brazil included. It reads the *colour crop* in one pass:
+      the image is resized to 128 x 64, a convolutional tokenizer turns it
+      into patches, transformer layers relate them, and one classification
+      head per character slot outputs the character (or padding). No
+      separate text detection is needed.
+    * **EasyOCR** (fallback) - generic text OCR (CRAFT + CRNN/CTC) run on the
+      pre-processed grayscale and binary images. Used when the plate model
+      is unavailable or does not return a valid plate.
+    """
 
     def __init__(self, cfg: OCRConfig | None = None) -> None:
         self.cfg = cfg or OCRConfig()
-        self._reader = None
-        self.load_error: str | None = None
+        self._reader = None                   # EasyOCR
+        self._plate_model = None              # fast-plate-ocr
+        self.load_error: str | None = None    # EasyOCR load error
+        self.plate_model_error: str | None = None
         self.gpu: bool = False
+
+    # ---------------------------------------------------------------- loading
+    @property
+    def uses_plate_model(self) -> bool:
+        return self.cfg.engine == "fast_plate"
+
+    def _load_plate_model(self):
+        if not self.uses_plate_model:
+            return None
+        if self._plate_model is not None or self.plate_model_error is not None:
+            return self._plate_model
+        try:
+            from fast_plate_ocr import LicensePlateRecognizer
+
+            self._plate_model = LicensePlateRecognizer(self.cfg.plate_model, device="cpu")
+        except Exception as exc:  # package missing, no internet on the first download...
+            self.plate_model_error = f"Could not load fast-plate-ocr ({self.cfg.plate_model}): {exc}"
+            logger.exception("fast-plate-ocr load failed")
+        return self._plate_model
 
     def _load_reader(self):
         if self._reader is not None or self.load_error is not None:
@@ -331,13 +389,31 @@ class PlateOCR:
         return self._reader
 
     @property
+    def engine_name(self) -> str:
+        """Engine that reads first (for the interface)."""
+        return f"fast-plate-ocr ({self.cfg.plate_model})" if self.uses_plate_model else "EasyOCR"
+
+    @property
     def loaded(self) -> bool:
-        """True once the EasyOCR reader is in memory (does not trigger loading)."""
-        return self._reader is not None
+        """True once the first engine is in memory (does not trigger loading)."""
+        return (self._plate_model is not None) if self.uses_plate_model else (self._reader is not None)
 
     @property
     def available(self) -> bool:
-        return self._load_reader() is not None
+        """At least one engine can read (loads the models)."""
+        plate_model = self._load_plate_model()
+        return plate_model is not None or self._load_reader() is not None
+
+    # ---------------------------------------------------------------- reading
+    def read_plate_model(self, crop_bgr: np.ndarray) -> PlateReading:
+        """fast-plate-ocr on the colour plate crop (BGR, as OpenCV loads it)."""
+        model = self._load_plate_model()
+        if model is None:
+            raise RuntimeError(self.plate_model_error or "fast-plate-ocr unavailable.")
+        image = crop_bgr[:, :, ::-1] if crop_bgr.ndim == 3 else crop_bgr   # the model expects RGB
+        prediction = model.run(np.ascontiguousarray(image), return_confidence=True)[0]
+        return plate_model_reading(prediction.plate, getattr(prediction, "char_probs", None),
+                                   getattr(prediction, "region", None), self.cfg)
 
     def read_fragments(self, image: np.ndarray) -> list[Fragment]:
         """Raw EasyOCR output for one image."""
@@ -350,15 +426,28 @@ class PlateOCR:
         return [(np.asarray(box).tolist(), str(text), float(conf)) for box, text, conf in results]
 
     def recognize(self, images: dict[str, np.ndarray]) -> OCRResult:
-        """Read every candidate image and return the decision.
+        """Read the plate and return the decision.
 
         Args:
-            images: mapping ``source name -> image``, e.g.
-                ``{"enhanced": result.enhanced, "binary": result.binary}``.
+            images: mapping ``source name -> image``. ``"crop"`` is the colour
+                crop (read by the plate model); the others, e.g.
+                ``{"enhanced": ..., "binary": ...}``, are read by EasyOCR.
+
+        Raises:
+            RuntimeError: no engine could read.
         """
-        readings = []
-        for source, image in images.items():
-            if image is None or image.size == 0:
-                continue
-            readings.append(interpret_fragments(self.read_fragments(image), source, self.cfg))
+        readings: list[PlateReading] = []
+        crop = images.get("crop")
+        if self.uses_plate_model and crop is not None and crop.size and self._load_plate_model() is not None:
+            readings.append(self.read_plate_model(crop))
+            if readings[0].is_valid:
+                return choose_reading(readings, self.cfg)
+
+        easy_images = {k: v for k, v in images.items() if k != "crop" and v is not None and v.size}
+        if easy_images and self._load_reader() is not None:
+            for source, image in easy_images.items():
+                readings.append(interpret_fragments(self.read_fragments(image), source, self.cfg))
+        if not readings:
+            errors = [e for e in (self.plate_model_error, self.load_error) if e]
+            raise RuntimeError(" ".join(errors) or "No OCR engine available.")
         return choose_reading(readings, self.cfg)

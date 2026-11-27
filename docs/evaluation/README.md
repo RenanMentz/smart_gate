@@ -39,12 +39,11 @@ What this means for the results:
 ## Results with the published YOLO11 weights
 
 Full report with every missed image: [`published_all.md`](published_all.md)
-(per-image data in `published_all.json`). RTX 5050, confidence 0.25, input
-640, IoU ≥ 0.5. The OCR columns used the minimum OCR confidence of that time,
-**0.60**; the default is now 0.45 (8 of the 94 valid reads fall between the two).
-With 0.45 and the "observed beats guessed" rule of `modules/ocr.py`, the reads
-accepted without review on the detector box go from 60 to 70 of 247. Without
-text annotation it is unknown how many of those 10 extra reads are correct.
+(per-image data in `published_all.json`; the file now holds the run with the
+current OCR, see [OCR engine change](#ocr-engine-change-fast-plate-ocr)).
+RTX 5050, confidence 0.25, input 640, IoU ≥ 0.5. The OCR figures in this
+section were measured with the OCR of that time: EasyOCR, minimum confidence
+0.60.
 
 | Group | Plates | Detected | Recall | Precision | Mean IoU |
 |---|---:|---:|---:|---:|---:|
@@ -101,7 +100,8 @@ images in both splits), that the published metrics are therefore inflated, and
 it reports them only for the YOLO11x variant. None of those figures is used
 here; the "Published" column was measured again on Brazilian images.
 
-The whole system (`scripts/evaluate.py`, detector + OCR), same splits:
+The whole system (`scripts/evaluate.py`, detector + OCR), same splits, measured
+with the OCR of that time (EasyOCR, minimum confidence 0.60):
 
 | Split | Model | Plates detected | Precision | OCR valid plate | Accepted without review |
 |---|---|---:|---:|---:|---:|
@@ -133,6 +133,42 @@ used only with `SMART_GATE_MODEL=finetuned`. Next steps if the group wants to
 adopt it: add background images (no plates) and car photos from the gate
 camera to the training set, then repeat `train_detector` + `evaluate`.
 
+## OCR engine change: fast-plate-ocr
+
+EasyOCR is a generic text reader (not trained on plates): on a clear Mercosul
+plate it confused `1` with `T` and gave 49 % confidence. The default OCR is now
+[fast-plate-ocr](https://github.com/ankandrew/fast-plate-ocr) (MIT), model
+`cct-xs-v2-global-model`, trained only on license plates of ~65 regions,
+**Brazil included**; EasyOCR stays as the fallback (`OCRConfig.engine`).
+
+On the 6 real plates whose text is visible (user photo + demo images 01–04):
+
+| Plate | EasyOCR | fast-plate-ocr (+ position correction) |
+|---|---|---|
+| ABC1D23 (user photo) | correct, 49 % → review | correct, 100 % |
+| ASS2193 | correct | **`ASS2I93`** – wrong at position 5, the one position never auto-corrected |
+| NZM8373 | correct | correct |
+| JSY8838 | correct | correct |
+| BAH5201 (bus) | `OAH5201`, 19 % | correct |
+
+The `ASS2I93` error is a valid Mercosul plate, so only the access rules can
+catch it: if `ASS2193` is registered, the twin rule sends the read to manual
+review (tested in `tests/test_demo_images.py`).
+
+Whole dataset, same detector (`published_all.md`), no text ground truth:
+
+| OCR | Valid plate (detector box) | Accepted without review |
+|---|---:|---:|
+| EasyOCR, threshold 0.60 (before the observed-vs-guessed rule) | 94 / 247 | 60 |
+| EasyOCR, threshold 0.45 + observed-vs-guessed rule | 94 / 247 | 70 |
+| fast-plate-ocr, threshold 0.45 | 180 / 247 | 142 |
+
+These counts show that the reader is more *confident*, not that it is more
+*correct*. An informal visual check of 24 random accepted reads (by eye, not a
+metric) found about 17 matching the plate and errors such as `Q`/`O` and
+`W`/`N` on blurred motorcycle plates. Measuring accuracy still requires plates
+with annotated text (e.g. RodoSol-ALPR).
+
 ## Problems found and what was done
 
 | Problem | Action |
@@ -141,5 +177,5 @@ camera to the training set, then repeat `train_detector` + `evaluate`.
 | Dataset has no exportable version | Download rebuilt from the image API |
 | Motorcycle plates far from the camera are missed | Fine-tuning (item 11) detects them; the OCR still cannot read them, so they go to manual review, never to "authorized" |
 | Fine-tuned detector fires on a photo without plates | Kept the published model as default; regression test pinned per model |
-| Wrong but *valid-looking* reads | Confirmed that low confidence sends them to manual review (regression test in `tests/test_demo_images.py`) |
+| Wrong but *valid-looking* reads | Low confidence sends them to manual review; a misread at position 5 can only be caught by the twin rule (regression tests in `tests/test_demo_images.py`) |
 | No text annotation → no OCR accuracy | Not invented: support for a human-made `plate_texts.csv` instead |

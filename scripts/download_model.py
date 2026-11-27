@@ -9,6 +9,10 @@ SHA-256, so every installation uses byte-identical weights. ``.pt`` files are
 Python pickles; pinning + hashing guarantees we only load the file that was
 reviewed.
 
+It also fetches the default OCR model (fast-plate-ocr ``cct-xs-v2-global-model``,
+MIT license, https://github.com/ankandrew/fast-plate-ocr), which the package
+caches in the user's folder.
+
 Usage (from the project root)::
 
     python -m scripts.download_model
@@ -65,7 +69,17 @@ def download(force: bool = False) -> Path:
     return target
 
 
+def download_ocr_model() -> None:
+    """Fetch the fast-plate-ocr weights (cached by the package) so the first reading works offline."""
+    from fast_plate_ocr import LicensePlateRecognizer
+
+    model = config.DEFAULT_CONFIG.ocr.plate_model
+    LicensePlateRecognizer(model, device="cpu")
+    print(f"OCR model ready: fast-plate-ocr {model}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--force", action="store_true", help="download even if the file exists")
     download(parser.parse_args().force)
+    download_ocr_model()
