@@ -14,7 +14,7 @@ def test_valid_settings_override_defaults_without_touching_the_base():
     })
     assert (cfg.ocr.min_confidence, cfg.detection.confidence_threshold) == (0.75, 0.4)
     assert (cfg.duplicate_window_seconds, cfg.gate_open_seconds) == (30, 8)
-    assert base.ocr.min_confidence == 0.60 and base.gate_open_seconds == 5     # base unchanged
+    assert base.ocr.min_confidence == 0.45 and base.gate_open_seconds == 5     # base unchanged
 
 
 def test_empty_settings_keep_the_defaults():

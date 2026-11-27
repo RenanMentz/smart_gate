@@ -40,7 +40,11 @@ What this means for the results:
 
 Full report with every missed image: [`published_all.md`](published_all.md)
 (per-image data in `published_all.json`). RTX 5050, confidence 0.25, input
-640, IoU ≥ 0.5.
+640, IoU ≥ 0.5. The OCR columns used the minimum OCR confidence of that time,
+**0.60**; the default is now 0.45 (8 of the 94 valid reads fall between the two).
+With 0.45 and the "observed beats guessed" rule of `modules/ocr.py`, the reads
+accepted without review on the detector box go from 60 to 70 of 247. Without
+text annotation it is unknown how many of those 10 extra reads are correct.
 
 | Group | Plates | Detected | Recall | Precision | Mean IoU |
 |---|---:|---:|---:|---:|---:|

@@ -40,7 +40,10 @@ OCR output is noisy, so :func:`interpret_fragments` applies, in order:
 The read is flagged for **manual review** (never silently "fixed") when the
 text is not a valid plate, the confidence is below ``min_confidence``, more
 than ``max_corrections`` characters had to be changed, or the grayscale and
-binary images produced two *different* valid plates.
+binary images produced two *different* valid plates. A disagreement is not a
+conflict when it only involves characters *guessed* by the position-based
+correction: a character read directly wins over one that was substituted
+(:func:`observed_consensus`).
 """
 
 from __future__ import annotations
@@ -235,6 +238,36 @@ def interpret_fragments(fragments: list[Fragment], source: str, cfg: OCRConfig |
     return reading
 
 
+def observed_consensus(readings: list[PlateReading]) -> str | None:
+    """Plate on which the readings agree once *guessed* characters are discounted.
+
+    A character changed by :func:`correct_by_position` is a guess (``T`` at a
+    digit position may be ``1`` or ``7``); a character the OCR read directly is
+    an observation. Where valid readings disagree, the position is resolved
+    only if every reading that read it *directly* saw the same character.
+    Returns the plate of a reading that matches all observations, or ``None``
+    if the observations themselves disagree (a real conflict).
+    """
+    plates = [r.plate for r in readings if r.plate]
+    if not plates:
+        return None
+    for i in range(PLATE_LENGTH):
+        if len({p[i] for p in plates}) == 1:
+            continue
+        observed = {r.plate[i] for r in readings
+                    if r.plate and all(c.position != i for c in r.corrections)}
+        if len(observed) != 1:
+            return None
+    # the readings agree on every directly observed character: pick one that has them all
+    for r in readings:
+        if r.plate and all(
+            len({p[i] for p in plates}) == 1 or all(c.position != i for c in r.corrections)
+            for i in range(PLATE_LENGTH)
+        ):
+            return r.plate
+    return None
+
+
 def choose_reading(readings: list[PlateReading], cfg: OCRConfig | None = None) -> OCRResult:
     """Pick the best reading and decide whether a human must review it."""
     cfg = cfg or OCRConfig()
@@ -242,7 +275,8 @@ def choose_reading(readings: list[PlateReading], cfg: OCRConfig | None = None) -
         return OCRResult(None, "", 0.0, PlateFormat.INVALID, True, ["OCR produced no reading."], [], "none")
 
     valid = [r for r in readings if r.is_valid]
-    pool = valid or readings
+    consensus = observed_consensus(valid) if len({r.plate for r in valid}) > 1 else None
+    pool = [r for r in valid if r.plate == consensus] if consensus else (valid or readings)
     best = max(pool, key=lambda r: (r.confidence, -len(r.corrections)))
     reasons: list[str] = []
 
@@ -253,7 +287,7 @@ def choose_reading(readings: list[PlateReading], cfg: OCRConfig | None = None) -
         if best.confidence < cfg.min_confidence:
             reasons.append(f"Low OCR confidence ({best.confidence:.0%} < {cfg.min_confidence:.0%}).")
         distinct = {r.plate for r in valid}
-        if len(distinct) > 1:
+        if len(distinct) > 1 and consensus is None:
             reasons.append("Different images produced different plates: " + ", ".join(sorted(distinct)) + ".")
 
     return OCRResult(

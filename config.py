@@ -93,7 +93,10 @@ class OCRConfig:
 
     languages: list[str] = field(default_factory=lambda: ["en"])  # latin alphabet + digits
     use_gpu: bool = True                  # falls back to CPU automatically if CUDA is missing
-    min_confidence: float = 0.60          # below this the read goes to MANUAL REVIEW
+    min_confidence: float = 0.45          # below this the read goes to MANUAL REVIEW. Lowered from 0.60:
+                                          # EasyOCR (generic, not trained on plates) gives clear Mercosul
+                                          # plates ~0.49 because it confuses 1/T. Not yet calibrated on
+                                          # annotated plates (see docs/evaluation/README.md).
     allowlist: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     max_corrections: int = 2              # more position-based fixes than this -> MANUAL REVIEW
     min_text_height_ratio: float = 0.55   # ignore text smaller than this fraction of the tallest

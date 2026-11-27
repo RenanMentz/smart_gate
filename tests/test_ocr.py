@@ -153,3 +153,34 @@ def test_easyocr_reads_synthetic_plate(text):
     result = ocr.recognize({"enhanced": processed.enhanced, "binary": processed.binary})
     assert result.plate == text
     assert 0.0 < result.confidence <= 1.0
+
+# ------------------------------------------------- observed vs guessed chars
+def _reading(text, source, conf=0.5):
+    box = [[0, 0], [100, 0], [100, 40], [0, 40]]
+    return interpret_fragments([(box, text, conf)], source)
+
+
+def test_directly_read_character_wins_over_a_guessed_one():
+    # real case (Mercosul plate ABC1D23): one image read "T" at a digit position,
+    # the correction guessed 7; the other image read "1" directly
+    guessed, observed = _reading("ABCTD23", "enhanced", 0.486), _reading("ABC1D23", "binary", 0.494)
+    assert guessed.plate == "ABC7D23" and observed.plate == "ABC1D23"
+    result = choose_reading([guessed, observed], OCRConfig(min_confidence=0.45))
+    assert result.plate == "ABC1D23" and not result.needs_review
+
+
+def test_observed_character_wins_even_with_lower_confidence():
+    result = choose_reading([_reading("ABCTD23", "enhanced", 0.9), _reading("ABC1D23", "binary", 0.7)])
+    assert result.plate == "ABC1D23" and not result.needs_review
+
+
+def test_two_different_observations_still_go_to_review():
+    result = choose_reading([_reading("ABC1D23", "enhanced", 0.9), _reading("ABC7D23", "binary", 0.9)])
+    assert result.needs_review and any("different plates" in r for r in result.reasons)
+
+
+def test_two_different_guesses_still_go_to_review():
+    # "T" -> 7 and "I" -> 1 are both substitutions: nothing was observed at that position
+    result = choose_reading([_reading("ABCTD23", "enhanced", 0.9), _reading("ABCID23", "binary", 0.9)])
+    assert result.needs_review
+
