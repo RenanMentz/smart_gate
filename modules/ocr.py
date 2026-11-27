@@ -296,6 +296,11 @@ class PlateOCR:
         return self._reader
 
     @property
+    def loaded(self) -> bool:
+        """True once the EasyOCR reader is in memory (does not trigger loading)."""
+        return self._reader is not None
+
+    @property
     def available(self) -> bool:
         return self._load_reader() is not None
 

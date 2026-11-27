@@ -2,6 +2,10 @@
 #
 # PyTorch must be installed FIRST from the official index to get GPU (CUDA) support:
 #   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+# RTX 50xx GPUs (Blackwell, sm_120) are NOT supported by the cu124 build above
+# (CUDA reports available but every kernel fails). Use a CUDA 12.8 build instead:
+#   pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu128
+# The Settings screen shows whether the installed build supports the GPU.
 # CPU-only machines can use:
 #   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
 # Then:

@@ -393,3 +393,8 @@ class Database:
     def get_all_settings(self) -> dict[str, str]:
         with self.connect() as conn:
             return {r["key"]: r["value"] for r in conn.execute("SELECT key, value FROM settings")}
+
+    def delete_setting(self, key: str) -> None:
+        """Remove a setting, so the default from ``config.py`` applies again."""
+        with self.connect() as conn:
+            conn.execute("DELETE FROM settings WHERE key = ?", (key,))

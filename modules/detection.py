@@ -204,6 +204,11 @@ class PlateDetector:
 
     # ---------------------------------------------------------------- model
     @property
+    def loaded(self) -> bool:
+        """True once the YOLO weights are in memory (does not trigger loading)."""
+        return self._model is not None
+
+    @property
     def yolo_available(self) -> bool:
         """True if the YOLO weights exist and load correctly."""
         return self._load_model() is not None
