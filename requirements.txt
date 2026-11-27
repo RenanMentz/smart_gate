@@ -27,8 +27,9 @@ pillow==13.0.0
 streamlit==1.67.0
 pandas==3.1.1
 
-# Model download
+# Model and dataset download
 huggingface_hub==2.4.0
+requests==2.34.2
 
 # Tests
 pytest==9.2.0
