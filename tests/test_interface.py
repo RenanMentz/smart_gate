@@ -128,7 +128,8 @@ def test_describe_decision_texts(db, tmp_path):
     assert describe("XYZ9876")[1] == "Veículo cadastrado, mas bloqueado."
     assert describe("QQQ1Q11")[1] == "Placa não cadastrada."
     assert "parecida (ABC-1823)" in describe("ABC1B23")[1]
-    assert "Confira a placa" in describe("ABC1D23", needs_review=True, reasons=["x"])[1]
+    assert "está cadastrada (autorizada)" in describe("ABC1D23", needs_review=True, reasons=["x"])[1]
+    assert "Confira a placa" in describe("QQQ1Q11", needs_review=True, reasons=["x"])[1]
     result, text = describe("ABC1D23", detections=None)
     manual = access.describe_decision(result, result.decision, manual=True)
     assert manual.startswith("Placa confirmada pelo operador.")
@@ -213,6 +214,8 @@ def test_review_form_decides_again_and_opens_the_gate(use_pipeline, db, tmp_path
     at.run()
     assert "sg-verdict-review" in page_html(at) and "Cancela aberta" not in page_html(at)
     assert at.text_input[0].value == "ABC1D23"                          # pre-filled with the OCR plate
+    assert "não encontrada" not in page_html(at)                         # the registry is shown even in review
+    assert any("ainda não foi confirmada" in c.value for c in at.caption)
 
     at.text_input[0].set_value("abc-1d23")
     at.button[0].click().run()

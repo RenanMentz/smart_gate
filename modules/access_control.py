@@ -55,6 +55,11 @@ class AccessDecision:
         return self.result is AccessResult.AUTHORIZED
 
 
+def _similar_vehicles(db: Database, plate: str) -> list[Vehicle]:
+    """Registered vehicles whose plate differs only at the ambiguous position 5."""
+    return [v for alt in position4_alternatives(plate) if (v := db.find_vehicle_by_plate(alt)) is not None]
+
+
 def decide_access(
     db: Database,
     plate: str | None,
@@ -75,7 +80,12 @@ def decide_access(
     """
     if allow_review and (needs_review or not plate):
         detail = " ".join(review_reasons) if review_reasons else "No valid plate was read."
-        return AccessDecision(AccessResult.MANUAL_REVIEW, plate, f"Manual review required. {detail}".strip())
+        # the registry is still consulted so the operator sees whether the doubtful
+        # plate is registered (and its twins); it never changes the outcome
+        vehicle = db.find_vehicle_by_plate(plate) if plate else None
+        similar = _similar_vehicles(db, plate) if plate and vehicle is None else []
+        return AccessDecision(AccessResult.MANUAL_REVIEW, plate, f"Manual review required. {detail}".strip(),
+                              vehicle, similar)
     if not plate:  # an operator must always provide a plate
         raise ValueError("A plate is required for a confirmed decision.")
 
@@ -86,8 +96,7 @@ def decide_access(
         return AccessDecision(AccessResult.DENIED, plate, "Registered vehicle is blocked.", vehicle)
 
     if allow_review:
-        similar = [v for alt in position4_alternatives(plate)
-                   if (v := db.find_vehicle_by_plate(alt)) is not None]
+        similar = _similar_vehicles(db, plate)
         if similar:
             twins = ", ".join(v.plate for v in similar)
             return AccessDecision(

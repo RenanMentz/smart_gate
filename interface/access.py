@@ -100,6 +100,9 @@ def describe_decision(result: PipelineResult, decision: AccessDecision, manual: 
     if decision.similar_vehicles:
         twins = ", ".join(format_for_display(v.plate) for v in decision.similar_vehicles)
         return f"Placa não cadastrada, mas existe uma parecida ({twins}). O 5º caractere pode ter sido lido errado."
+    if decision.vehicle is not None:
+        status = "autorizada" if decision.vehicle.authorized else "bloqueada"
+        return f"Leitura incerta. A placa lida está cadastrada ({status}): confira na imagem e confirme."
     if result.ocr is not None and result.ocr.plate:
         return "Leitura incerta. Confira a placa na imagem antes de liberar."
     return "Nenhuma placa válida foi lida. Digite a placa para continuar."
@@ -207,6 +210,8 @@ def _render_vehicle(decision: AccessDecision) -> None:
                 f"**Situação:** {'Autorizado' if vehicle.authorized else 'Bloqueado'}",
             ]
             st.markdown("  \n".join(lines))
+            if decision.result is AccessResult.MANUAL_REVIEW:
+                st.caption("A leitura ainda não foi confirmada: a cancela só abre depois da revisão.")
         elif decision.similar_vehicles:
             st.write("Placa não cadastrada. Placas parecidas no cadastro:")
             for v in decision.similar_vehicles:

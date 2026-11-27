@@ -66,6 +66,20 @@ def test_ocr_review_flag_wins_over_a_registered_plate(db):
     assert not decision.opens_gate
 
 
+def test_review_still_reports_the_registered_vehicle_without_opening_the_gate(db):
+    vehicle = db.add_vehicle("ABC1D23")
+    decision = decide_access(db, "ABC1D23", needs_review=True, review_reasons=["Low OCR confidence."])
+    assert decision.result is AccessResult.MANUAL_REVIEW and not decision.opens_gate
+    assert decision.vehicle is not None and decision.vehicle.id == vehicle.id      # shown to the operator
+
+
+def test_review_reports_twins_of_an_unregistered_doubtful_plate(db):
+    db.add_vehicle("ABC1823")
+    decision = decide_access(db, "ABC1B23", needs_review=True)
+    assert decision.result is AccessResult.MANUAL_REVIEW and decision.vehicle is None
+    assert [v.plate for v in decision.similar_vehicles] == ["ABC1823"]
+
+
 def test_missing_plate_goes_to_manual_review(db):
     decision = decide_access(db, None)
     assert decision.result is AccessResult.MANUAL_REVIEW and decision.plate is None
