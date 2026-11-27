@@ -1,0 +1,47 @@
+{
+ "meta": {
+  "date": "2026-11-26 21:06",
+  "epochs": 50,
+  "epochs_run": 50,
+  "patience": 15,
+  "imgsz": 640,
+  "batch": 16,
+  "seed": 0,
+  "device": "NVIDIA GeForce RTX 5050",
+  "minutes": 4.926562825000004,
+  "best": "runs/detect/plate_finetune/weights/best.pt",
+  "images": {
+   "train": 294,
+   "valid": 64,
+   "test": 12
+  }
+ },
+ "published": {
+  "val": {
+   "precision": 0.9284642164454642,
+   "recall": 0.5899766702984309,
+   "map50": 0.7495813109326627,
+   "map50_95": 0.5052601484590087
+  },
+  "test": {
+   "precision": 0.9967045835168759,
+   "recall": 0.8333333333333334,
+   "map50": 0.9026923076923077,
+   "map50_95": 0.5720269230769232
+  }
+ },
+ "finetuned": {
+  "val": {
+   "precision": 0.984833268040564,
+   "recall": 0.9838593923336278,
+   "map50": 0.9846969696969696,
+   "map50_95": 0.8163583516608354
+  },
+  "test": {
+   "precision": 0.9952762283471148,
+   "recall": 1.0,
+   "map50": 0.995,
+   "map50_95": 0.8100595238095238
+  }
+ }
+}

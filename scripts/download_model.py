@@ -44,7 +44,7 @@ def sha256_of(path: Path) -> str:
 
 def download(force: bool = False) -> Path:
     """Download (if needed) and verify the weights. Returns the local path."""
-    target = config.PLATE_MODEL_PATH
+    target = config.PUBLISHED_MODEL_PATH
     config.ensure_directories()
     if target.exists() and not force:
         if sha256_of(target) == SHA256:

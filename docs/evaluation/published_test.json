@@ -1,0 +1,421 @@
+{
+ "meta": {
+  "tag": "published",
+  "date": "2026-11-26 21:07",
+  "dataset": "brazilian_lpr",
+  "splits": [
+   "test"
+  ],
+  "model": "plate_detector.pt",
+  "model_sha256": "95e50c25ab7066dd0ca5aec18fa80349676db08697780d1149576461174d2381",
+  "device": "NVIDIA GeForce RTX 5050",
+  "confidence": 0.25,
+  "fallback": true,
+  "image_size": 640,
+  "seconds": 1.6852829999997994,
+  "texts_annotated": 0
+ },
+ "summary": {
+  "detection": {
+   "images": 12,
+   "gt_plates": 12,
+   "detected": 10,
+   "predicted_boxes": 10,
+   "false_positives": 0,
+   "recall": 0.8333333333333334,
+   "precision": 1.0,
+   "mean_iou": 0.8255000000000001,
+   "images_all_found": 10
+  },
+  "detection_by_vehicle": {
+   "car": {
+    "images": 3,
+    "gt_plates": 3,
+    "detected": 3,
+    "predicted_boxes": 3,
+    "false_positives": 0,
+    "recall": 1.0,
+    "precision": 1.0,
+    "mean_iou": 0.7886666666666667,
+    "images_all_found": 3
+   },
+   "motorcycle": {
+    "images": 7,
+    "gt_plates": 7,
+    "detected": 5,
+    "predicted_boxes": 5,
+    "false_positives": 0,
+    "recall": 0.7142857142857143,
+    "precision": 1.0,
+    "mean_iou": 0.8576,
+    "images_all_found": 5
+   },
+   "unknown": {
+    "images": 2,
+    "gt_plates": 2,
+    "detected": 2,
+    "predicted_boxes": 2,
+    "false_positives": 0,
+    "recall": 1.0,
+    "precision": 1.0,
+    "mean_iou": 0.8005,
+    "images_all_found": 2
+   }
+  },
+  "detection_by_method": {
+   "yolo": {
+    "images": 10,
+    "detected": 10,
+    "false_positives": 0
+   },
+   "none": {
+    "images": 2,
+    "detected": 0,
+    "false_positives": 0
+   }
+  },
+  "yolo_only_recall": 0.8333333333333334,
+  "ocr_on_detected_box": {
+   "reads": 10,
+   "valid_plate": 3,
+   "accepted_without_review": 1
+  },
+  "ocr_on_ground_truth_box": {
+   "reads": 12,
+   "valid_plate": 3,
+   "accepted_without_review": 1
+  },
+  "ocr_by_vehicle": {
+   "car": {
+    "reads": 3,
+    "valid_plate": 2,
+    "accepted_without_review": 0
+   },
+   "motorcycle": {
+    "reads": 7,
+    "valid_plate": 0,
+    "accepted_without_review": 0
+   },
+   "unknown": {
+    "reads": 2,
+    "valid_plate": 1,
+    "accepted_without_review": 1
+   }
+  },
+  "ocr_accuracy_detected_box": null,
+  "ocr_accuracy_ground_truth_box": null,
+  "errors": []
+ },
+ "images": [
+  {
+   "file": "test/images/11_220624105232_0000000_B_m3NoFQWc.jpg",
+   "split": "test",
+   "vehicle": "unknown",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.917
+   ],
+   "ocr_detected": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/20201229_132137769232_png_aGnBnlQi.jpg",
+   "split": "test",
+   "vehicle": "motorcycle",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.877
+   ],
+   "ocr_detected": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/20201229_132137917715_png_GwIp6gVO.jpg",
+   "split": "test",
+   "vehicle": "motorcycle",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.837
+   ],
+   "ocr_detected": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/20201229_132138068153_png_40wfihT0.jpg",
+   "split": "test",
+   "vehicle": "motorcycle",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.812
+   ],
+   "ocr_detected": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/20201229_132340181267_png_Pk9Wf6Je.jpg",
+   "split": "test",
+   "vehicle": "motorcycle",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.875
+   ],
+   "ocr_detected": {
+    "plate": null,
+    "raw_text": "458",
+    "confidence": 0.0414,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/20201229_132340324267_png_4dDphlJo.jpg",
+   "split": "test",
+   "vehicle": "motorcycle",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.887
+   ],
+   "ocr_detected": {
+    "plate": null,
+    "raw_text": "R",
+    "confidence": 0.9308,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "333B",
+    "confidence": 0.0483,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/20201229_132340467267_png_EtlU8t4y.jpg",
+   "split": "test",
+   "vehicle": "motorcycle",
+   "gt_plates": 1,
+   "predicted": 0,
+   "method": "none",
+   "matched": 0,
+   "false_positives": 0,
+   "ious": [],
+   "ocr_detected": null,
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/20201229_132340613267_png_SjROqeZw.jpg",
+   "split": "test",
+   "vehicle": "motorcycle",
+   "gt_plates": 1,
+   "predicted": 0,
+   "method": "none",
+   "matched": 0,
+   "false_positives": 0,
+   "ious": [],
+   "ocr_detected": null,
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "",
+    "confidence": 0.0,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/6_220624105205_0000000_B_if3GPnF8.jpg",
+   "split": "test",
+   "vehicle": "car",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.781
+   ],
+   "ocr_detected": {
+    "plate": "OAH5201",
+    "raw_text": "O4H5201",
+    "confidence": 0.1922,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": "UWH5201",
+    "raw_text": "UWH5201",
+    "confidence": 0.3052,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/CAM_P_165645315_22_7_22_14_1_33_5zn3p0SH.jpg",
+   "split": "test",
+   "vehicle": "car",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.798
+   ],
+   "ocr_detected": {
+    "plate": null,
+    "raw_text": "IB102",
+    "confidence": 0.5329,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": "BDQ1O20",
+    "raw_text": "BDQJO2Q",
+    "confidence": 0.091,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/CAM_P_178762682_22_7_22_17_40_10_kM6avQA9.jpg",
+   "split": "test",
+   "vehicle": "car",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.787
+   ],
+   "ocr_detected": {
+    "plate": "LCZ0408",
+    "raw_text": "LC 20408",
+    "confidence": 0.1423,
+    "needs_review": true
+   },
+   "ocr_ground_truth": {
+    "plate": null,
+    "raw_text": "I",
+    "confidence": 0.959,
+    "needs_review": true
+   },
+   "truth": null,
+   "error": null
+  },
+  {
+   "file": "test/images/tt1_V913YLcp.jpg",
+   "split": "test",
+   "vehicle": "unknown",
+   "gt_plates": 1,
+   "predicted": 1,
+   "method": "yolo",
+   "matched": 1,
+   "false_positives": 0,
+   "ious": [
+    0.684
+   ],
+   "ocr_detected": {
+    "plate": "ASS2193",
+    "raw_text": "ASS 2193",
+    "confidence": 0.9702,
+    "needs_review": false
+   },
+   "ocr_ground_truth": {
+    "plate": "ASS2193",
+    "raw_text": "ASS 2193",
+    "confidence": 0.9959,
+    "needs_review": false
+   },
+   "truth": null,
+   "error": null
+  }
+ ]
+}

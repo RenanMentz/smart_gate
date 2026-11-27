@@ -8,6 +8,7 @@ interface can override the thresholds at runtime (stored in the database).
 from __future__ import annotations
 
 import copy
+import os
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -22,8 +23,21 @@ MODELS_DIR = BASE_DIR / "models"
 ASSETS_DIR = BASE_DIR / "assets"
 DATABASE_PATH = DATA_DIR / "smart_gate.db"
 
-# Default YOLO weights file for license plate detection (see scripts/download_model.py)
-PLATE_MODEL_PATH = MODELS_DIR / "plate_detector.pt"
+# YOLO weights for license plate detection:
+# * published: downloaded and hash-checked by scripts/download_model.py (default)
+# * finetuned: produced by scripts/train_detector.py --install
+# Set the environment variable SMART_GATE_MODEL=finetuned to use the second one.
+PUBLISHED_MODEL_PATH = MODELS_DIR / "plate_detector.pt"
+FINETUNED_MODEL_PATH = MODELS_DIR / "plate_detector_finetuned.pt"
+MODEL_ENV_VAR = "SMART_GATE_MODEL"
+
+
+def select_model_path(choice: str | None) -> Path:
+    """Weights chosen by ``SMART_GATE_MODEL`` (anything but ``finetuned`` -> published)."""
+    return FINETUNED_MODEL_PATH if (choice or "").strip().lower() == "finetuned" else PUBLISHED_MODEL_PATH
+
+
+PLATE_MODEL_PATH = select_model_path(os.environ.get(MODEL_ENV_VAR))
 
 # ---------------------------------------------------------------------------
 # Upload validation

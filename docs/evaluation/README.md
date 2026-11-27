@@ -75,7 +75,59 @@ A lower threshold finds more of the tiny motorcycle plates, but those are the
 plates the OCR cannot read, and every extra false box is read by the OCR. The
 default (0.25 / 640) was kept for the gate scenario; the threshold can be
 changed on the Settings screen. The real fix for small plates is to train the
-detector on this kind of image (item 11).
+detector on this kind of image (see `scripts/train_detector.py`).
+
+## Fine-tuning (item 11)
+
+`python -m scripts.train_detector --install` fine-tunes the published YOLO11s
+on the train split (50 epochs, imgsz 640, `fliplr=0`, 4.9 min on the RTX 5050).
+Full table in [`finetune.md`](finetune.md); YOLO's own validation (`model.val`):
+
+| Split | Metric | Published | Fine-tuned |
+|---|---|---:|---:|
+| valid (64 img) | mAP@0.5 | 0.750 | 0.985 |
+| valid | mAP@0.5:0.95 | 0.505 | 0.816 |
+| valid | Recall | 0.590 | 0.984 |
+| test (12 img) | mAP@0.5 | 0.903 | 0.995 |
+| test | mAP@0.5:0.95 | 0.572 | 0.810 |
+
+**About the published model's own metrics:** its [model card](https://huggingface.co/morsetechlab/yolov11-license-plate-detection)
+warns that the upstream dataset has train/test contamination (the same source
+images in both splits), that the published metrics are therefore inflated, and
+it reports them only for the YOLO11x variant. None of those figures is used
+here; the "Published" column was measured again on Brazilian images.
+
+The whole system (`scripts/evaluate.py`, detector + OCR), same splits:
+
+| Split | Model | Plates detected | Precision | OCR valid plate | Accepted without review |
+|---|---|---:|---:|---:|---:|
+| valid | published | 35 / 66 | 97.2 % | 15 / 36 | 11 |
+| valid | fine-tuned | 64 / 66 | 98.5 % | 16 / 62 | 11 |
+| test | published | 10 / 12 | 100 % | 3 / 10 | 1 |
+| test | fine-tuned | 12 / 12 | 100 % | 3 / 12 | 2 |
+
+What this shows:
+
+* Detection of motorcycle plates in these scenes goes from about half to almost
+  all. The bus in demo image 04 is now read correctly (`BAH5201`, 72 %)
+  because the box is tighter.
+* **The OCR does not follow.** The plates recovered by the fine-tuned detector
+  are the tiny ones (≈ 30 px); the OCR cannot read them, so they still end in
+  manual review. At this resolution the bottleneck is the OCR, not the detector.
+* **Regression: false positives outside these scenes.** The dataset has no
+  background images (every image contains a plate), and almost all plates are
+  small squarish motorcycle plates. The fine-tuned model fires (confidence
+  0.54) on a 25 × 30 px region of Ultralytics' `zidane.jpg`, a photo without
+  any plate; the published model does not.
+* The splits share the same fixed cameras (checked: no vehicle appears in two
+  splits, but the scenes are the same), and the best epoch is chosen on valid,
+  so the fine-tuned numbers are optimistic for other places.
+
+**Decision:** the app keeps the **published** weights by default. The
+fine-tuned file is installed as `models/plate_detector_finetuned.pt` and is
+used only with `SMART_GATE_MODEL=finetuned`. Next steps if the group wants to
+adopt it: add background images (no plates) and car photos from the gate
+camera to the training set, then repeat `train_detector` + `evaluate`.
 
 ## Problems found and what was done
 
@@ -83,6 +135,7 @@ detector on this kind of image (item 11).
 |---|---|
 | RTX 50xx (Blackwell, `sm_120`) is not supported by the PyTorch cu124 build in the setup | Documented in `requirements.txt` (use the cu128 build); the Settings screen detects the mismatch |
 | Dataset has no exportable version | Download rebuilt from the image API |
-| Motorcycle plates far from the camera are missed | To be addressed by fine-tuning the detector (item 11); meanwhile the miss goes to manual review, never to "authorized" |
+| Motorcycle plates far from the camera are missed | Fine-tuning (item 11) detects them; the OCR still cannot read them, so they go to manual review, never to "authorized" |
+| Fine-tuned detector fires on a photo without plates | Kept the published model as default; regression test pinned per model |
 | Wrong but *valid-looking* reads | Confirmed that low confidence sends them to manual review (regression test in `tests/test_demo_images.py`) |
 | No text annotation → no OCR accuracy | Not invented: support for a human-made `plate_texts.csv` instead |

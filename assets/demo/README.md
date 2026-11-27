@@ -33,5 +33,10 @@ default settings and an empty vehicle registry (so readable plates are
 | `04_onibus_camera_transito.jpg` | YOLO | `OAH5201` | 19% | **Manual review** | Wrong read (the plate is `BAH-5201`) caught by the confidence threshold |
 | `05_moto_distante.jpg` | none | — | — | **Manual review** | Distant motorcycle: plate too small to be detected |
 
+With the fine-tuned detector (`SMART_GATE_MODEL=finetuned`, see
+`docs/evaluation/README.md`) images 01–03 give the same plates, image 04 is
+read correctly as `BAH5201` (72 %) and image 05 is detected but unreadable
+(manual review).
+
 Values recorded on 2026-11-26 (RTX 5050, PyTorch 2.7.1 + CUDA 12.8). Other
 hardware may produce slightly different confidences.

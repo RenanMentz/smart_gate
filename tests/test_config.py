@@ -44,3 +44,12 @@ def test_every_limited_setting_has_a_constant():
         config.SETTING_OCR_MIN_CONFIDENCE, config.SETTING_YOLO_CONFIDENCE,
         config.SETTING_DUPLICATE_WINDOW, config.SETTING_GATE_OPEN_SECONDS,
     }
+
+
+@pytest.mark.parametrize(("choice", "expected"), [
+    (None, "published"), ("", "published"), ("published", "published"), ("finetuned", "finetuned"),
+    (" FineTuned ", "finetuned"), ("other", "published"),
+])
+def test_model_selection_by_environment_variable(choice, expected):
+    path = config.select_model_path(choice)
+    assert path == (config.FINETUNED_MODEL_PATH if expected == "finetuned" else config.PUBLISHED_MODEL_PATH)
